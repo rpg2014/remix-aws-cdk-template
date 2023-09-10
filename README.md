@@ -42,3 +42,5 @@ Make sure to deploy the output of `remix build`
 ```sh
 yarn create remix --template rpg2014/remix-aws-cdk-template
 ```
+## TODO
+Update dependencies, and remix version
