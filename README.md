@@ -1,5 +1,6 @@
 # Welcome to Remix!
 
+- [See this template in action](https://remix-template.parkergiven.com)
 - [Remix Docs](https://remix.run/docs)
 
 ## Development
