@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 import { hash } from "~/utils.server";
 import { ActionFunction, redirect } from "@remix-run/server-runtime";
 import { json } from "@remix-run/node";
-import { Form, useActionData } from "@remix-run/react";
+import { Form, Link, useActionData } from "@remix-run/react";
 
 export function meta() {
   return [{ title: "Actions Demo" }];
@@ -94,6 +94,7 @@ export default function ActionsDemo() {
             </a>
           </li>
         </ul>
+        <Link to={'/demo'} prefetch={'intent'}><p>Back to demos</p></Link>
       </aside>
     </div>
   );

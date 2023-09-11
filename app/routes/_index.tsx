@@ -16,7 +16,7 @@ export default function Index() {
         <h1>Welcome to Remix</h1>
         <ul>
           <li>
-            <Link to="/demo">demo page</Link>
+            <Link prefetch={'intent'} to="/demo">demo page</Link>
           </li>
           <li>
             <a target="_blank" href="https://remix.run/tutorials/jokes" rel="noreferrer">

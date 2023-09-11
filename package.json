@@ -1,8 +1,9 @@
 {
   "private": true,
   "name": "remix-app-template",
-  "description": "",
-  "license": "",
+  "description": "A remix app implemented on Lambda@Edge using cdk",
+  "license": "MIT",
+  "version": "1.0",
   "scripts": {
     "build": "remix build",
     "dev": "remix dev",

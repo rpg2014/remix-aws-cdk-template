@@ -152,12 +152,15 @@ export class RemixAppStack extends Stack {
       zone: hostedZone,
       target: RecordTarget.fromAlias(new CloudFrontTarget(distribution)),
       recordName: `${props.subDomain}.${props.domainName}`,
+      // if the deploy fails b/c the record already exists, uncomment the below line
+      // deleteExisting: true,
     });
     new AaaaRecord(this, id + "AAAARecord", {
-      deleteExisting: true,
       recordName: `${props.subDomain}.${props.domainName}`,
       zone: hostedZone,
       target: RecordTarget.fromAlias(new CloudFrontTarget(distribution)),
+      // if the deploy fails b/c the record already exists, uncomment the below line
+      // deleteExisting: true,
     });
   }
 }

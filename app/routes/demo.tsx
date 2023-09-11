@@ -60,6 +60,10 @@ export let meta: V2_MetaFunction = () => {
 };
 
 // https://remix.run/guides/routing#index-routes
+/**
+ * Without the demo`_` in the child routes, this would render as a layout for a nested route.
+ * @constructor
+ */
 export default function Demo() {
   let data = useLoaderData<IndexData>();
 
