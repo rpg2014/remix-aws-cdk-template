@@ -2,13 +2,12 @@ import * as React from "react";
 
 import type { LinksFunction } from "@remix-run/node";
 
-import layoutStyles from "~/styles/layout.css";
 import globalStylesUrl from "~/styles/global.css";
 import darkStylesUrl from "~/styles/dark.css";
 
 import favicon from "~/images/favicon.ico";
 import * as EB from "~/components/ErrorBoundary";
-import { Layout } from "~/components/Layout";
+import { Layout, links as LayoutLinks } from "~/components/Layout";
 import { Document } from "~/components/Document";
 import { cssBundleHref } from "@remix-run/css-bundle";
 import { Outlet } from "@remix-run/react";
@@ -23,7 +22,8 @@ export let links: LinksFunction = () => {
       href: darkStylesUrl,
       media: "(prefers-color-scheme: dark)",
     },
-    { rel: "stylesheet", href: layoutStyles },
+      ...LayoutLinks()
+
   ];
 };
 
