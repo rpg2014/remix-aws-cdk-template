@@ -7,7 +7,7 @@
 From your terminal:
 
 ```sh
-npm run dev
+yarn dev
 ```
 
 This starts your app in development mode, rebuilding assets on file changes.
@@ -17,30 +17,23 @@ This starts your app in development mode, rebuilding assets on file changes.
 First, build your app for production:
 
 ```sh
-npm run build
+yarn build
 ```
 
 Then run the app in production mode:
 
 ```sh
-npm start
+yarn start
 ```
 
 Now you'll need to pick a host to deploy it to.
 
-### DIY
-
-If you're familiar with deploying node applications, the built-in Remix app server is production-ready.
-
-Make sure to deploy the output of `remix build`
-
-- `build/`
-- `public/build/`
+```shell
+yarn deploy
+```
 
 ### Using a Template
 
 ```sh
 yarn create remix --template rpg2014/remix-aws-cdk-template
 ```
-## TODO
-Update dependencies, and remix version
