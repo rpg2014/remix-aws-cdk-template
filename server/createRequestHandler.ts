@@ -1,23 +1,13 @@
 import { URL } from "url";
-import {
-  Headers as NodeHeaders,
-  Request as NodeRequest,
-  formatServerError,
-} from "@remix-run/node";
-import type {
-  CloudFrontRequestEvent,
-  CloudFrontRequestHandler,
-  CloudFrontHeaders,
-} from "aws-lambda";
-import type {
-  AppLoadContext,
-  ServerBuild,
-  ServerPlatform,
-} from "@remix-run/server-runtime";
-import { createRequestHandler as createRemixRequestHandler } from "@remix-run/server-runtime";
+import { Headers as NodeHeaders, Request as NodeRequest, createRequestHandler as createRemixRequestHandler } from "@remix-run/node";
+
+import type { CloudFrontRequestEvent, CloudFrontRequestHandler, CloudFrontHeaders } from "aws-lambda";
+import type { AppLoadContext, ServerBuild } from "@remix-run/server-runtime";
+
 import type { Response as NodeResponse } from "@remix-run/node";
 import { installGlobals } from "@remix-run/node";
 
+//Is needed?
 installGlobals();
 
 export interface GetLoadContextFunction {
@@ -26,6 +16,12 @@ export interface GetLoadContextFunction {
 
 export type RequestHandler = ReturnType<typeof createRequestHandler>;
 
+/**
+ * TODO: Update to use NodeJS streams?
+ * @param build
+ * @param getLoadContext
+ * @param mode
+ */
 export function createRequestHandler({
   build,
   getLoadContext,
@@ -35,19 +31,14 @@ export function createRequestHandler({
   getLoadContext?: GetLoadContextFunction;
   mode?: string;
 }): CloudFrontRequestHandler {
-  let platform: ServerPlatform = { formatServerError };
-  let handleRequest = createRemixRequestHandler(build, platform, mode);
+  let handleRequest = createRemixRequestHandler(build, mode);
 
-  return async (event, context) => {
+  return (async (event, context) => {
     let request = createRemixRequest(event);
 
-    let loadContext =
-      typeof getLoadContext === "function" ? getLoadContext(event) : undefined;
+    let loadContext = typeof getLoadContext === "function" ? getLoadContext(event) : undefined;
 
-    let response = (await handleRequest(
-      request as unknown as Request,
-      loadContext
-    )) as unknown as NodeResponse;
+    let response = (await handleRequest(request as unknown as Request, loadContext)) as unknown as NodeResponse;
 
     return {
       status: String(response.status),
@@ -55,12 +46,10 @@ export function createRequestHandler({
       bodyEncoding: "text",
       body: await response.text(),
     };
-  };
+  }) as CloudFrontRequestHandler;
 }
 
-export function createCloudFrontHeaders(
-  responseHeaders: NodeHeaders
-): CloudFrontHeaders {
+export function createCloudFrontHeaders(responseHeaders: NodeHeaders): CloudFrontHeaders {
   let headers: CloudFrontHeaders = {};
   let rawHeaders = responseHeaders.raw();
 
@@ -74,9 +63,7 @@ export function createCloudFrontHeaders(
   return headers;
 }
 
-export function createRemixHeaders(
-  requestHeaders: CloudFrontHeaders
-): NodeHeaders {
+export function createRemixHeaders(requestHeaders: CloudFrontHeaders): NodeHeaders {
   let headers = new NodeHeaders();
 
   for (let [key, values] of Object.entries(requestHeaders)) {
@@ -93,19 +80,13 @@ export function createRemixHeaders(
 export function createRemixRequest(event: CloudFrontRequestEvent): NodeRequest {
   let request = event.Records[0].cf.request;
 
-  let host = request.headers["host"]
-    ? request.headers["host"][0].value
-    : undefined;
+  let host = request.headers["host"] ? request.headers["host"][0].value : undefined;
   let search = request.querystring.length ? `?${request.querystring}` : "";
   let url = new URL(request.uri + search, `https://${host}`);
 
   return new NodeRequest(url.toString(), {
     method: request.method,
     headers: createRemixHeaders(request.headers),
-    body: request.body?.data
-      ? request.body.encoding === "base64"
-        ? Buffer.from(request.body.data, "base64").toString()
-        : request.body.data
-      : undefined,
+    body: request.body?.data ? (request.body.encoding === "base64" ? Buffer.from(request.body.data, "base64").toString() : request.body.data) : undefined,
   });
 }

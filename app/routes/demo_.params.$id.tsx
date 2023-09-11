@@ -1,9 +1,15 @@
-import { useCatch, Link, json, useLoaderData } from "remix";
-import type { LoaderFunction, MetaFunction } from "remix";
+import { json, LoaderFunction, V2_MetaFunction } from "@remix-run/node";
+import * as EB from "../components/ErrorBoundary";
+<<<<<<< HEAD
+import { useLoaderData } from "@remix-run/react";
+=======
+import { useLoaderData, V2_MetaArgs } from "@remix-run/react";
+>>>>>>> c402317 (Got the infra setup and demos working)
 
 // The `$` in route filenames becomes a pattern that's parsed from the URL and
 // passed to your loaders so you can look up data.
 // - https://remix.run/api/conventions#loader-params
+
 export let loader: LoaderFunction = async ({ params }) => {
   // pretend like we're using params.id to look something up in the db
 
@@ -28,7 +34,9 @@ export let loader: LoaderFunction = async ({ params }) => {
   // Sometimes your code just blows up and you never anticipated it. Remix will
   // automatically catch it and send the UI to the error boundary.
   if (params.id === "kaboom") {
-    lol();
+    //@ts-ignore
+    // lol();
+    throw new Error("wtf");
   }
 
   // but otherwise the record was found, user has access, so we can do whatever
@@ -49,62 +57,14 @@ export default function ParamDemo() {
 // https://remix.run/api/conventions#catchboundary
 // https://remix.run/api/remix#usecatch
 // https://remix.run/api/guides/not-found
-export function CatchBoundary() {
-  let caught = useCatch();
 
-  let message: React.ReactNode;
-  switch (caught.status) {
-    case 401:
-      message = (
-        <p>
-          Looks like you tried to visit a page that you do not have access to.
-          Maybe ask the webmaster ({caught.data.webmasterEmail}) for access.
-        </p>
-      );
-    case 404:
-      message = (
-        <p>Looks like you tried to visit a page that does not exist.</p>
-      );
-    default:
-      message = (
-        <p>
-          There was a problem with your request!
-          <br />
-          {caught.status} {caught.statusText}
-        </p>
-      );
-  }
-
-  return (
-    <>
-      <h2>Oops!</h2>
-      <p>{message}</p>
-      <p>
-        (Isn't it cool that the user gets to stay in context and try a different
-        link in the parts of the UI that didn't blow up?)
-      </p>
-    </>
-  );
-}
-
-// https://remix.run/api/conventions#errorboundary
+// https://remix.run/api/conventions#errorboundar
 // https://remix.run/api/guides/not-found
-export function ErrorBoundary({ error }: { error: Error }) {
-  console.error(error);
-  return (
-    <>
-      <h2>Error!</h2>
-      <p>{error.message}</p>
-      <p>
-        (Isn't it cool that the user gets to stay in context and try a different
-        link in the parts of the UI that didn't blow up?)
-      </p>
-    </>
-  );
-}
+export const ErrorBoundary = EB.ErrorBoundary;
 
-export let meta: MetaFunction = ({ data }) => {
-  return {
-    title: data ? `Param: ${data.param}` : "Oops...",
-  };
+export let meta: V2_MetaFunction = ({ data }: V2_MetaArgs) => {
+    return [{
+        title: data ? `Param: ${data.param}` : "Oops...",
+    }];
 };
+
