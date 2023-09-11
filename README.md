@@ -1,42 +1,94 @@
-# Welcome to Remix!
+# Remix CDK Template
 
+A Remix project template with AWS CDK for easy deployment.
 - [See this template in action](https://remix-template.parkergiven.com)
 - [Remix Docs](https://remix.run/docs)
 
-## Development
+## Getting Started
 
-From your terminal:
+### Prerequisites
+
+Before you begin, ensure you have met the following requirements:
+
+- Node.js installed
+- Yarn package manager installed
+- AWS CDK installed (you can install it globally with `npm install -g aws-cdk`)
+
+### Installation
+
+1. Clone this repository:
+
+   ```sh
+   yarn create remix --template rpg2014/remix-aws-cdk-template
+   ```
+
+2. Install project dependencies using Yarn:
+
+   ```sh
+   yarn install
+   ```
+
+### Development
+
+Start the Remix development server with the following command:
 
 ```sh
 yarn dev
 ```
 
-This starts your app in development mode, rebuilding assets on file changes.
+This will run your Remix app in development mode and automatically reload when you make changes to the code.
 
-## Deployment
+### Deployment
 
-First, build your app for production:
+To deploy your Remix app using AWS CDK, follow these steps:
 
-```sh
-yarn build
-```
+1. Configure your AWS credentials if you haven't already:
 
-Then run the app in production mode:
+   ```sh
+   aws configure --profile personal
+   ```
 
-```sh
-yarn start
-```
+2. Deploy the CDK stack:
 
-Now you'll need to pick a host to deploy it to.
+   ```sh
+   yarn deploy
+   ```
 
-```shell
-yarn deploy
-```
+This will deploy your Remix app to AWS using the AWS CDK.
 
-### Using a Template
+## Other Yarn Commands
 
-```sh
-yarn create remix --template rpg2014/remix-aws-cdk-template
-```
+- **Build**: Build your Remix app for production:
+
+  ```sh
+  yarn release
+  ```
+
+- **Lint**: Run lint checks for your code:
+
+  ```sh
+  yarn lint
+  ```
+
+- **Test**: Run tests for your Remix app:
+
+  ```sh
+  yarn test
+  ```
+
+- **Clean**: Remove build artifacts and node modules:
+
+  ```sh
+  yarn clean
+  ```
+
+## Contributing
+
+Feel free to contribute to this project. Create a pull request or open an issue if you find any problems or have suggestions for improvements.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 
 ## TODO:
