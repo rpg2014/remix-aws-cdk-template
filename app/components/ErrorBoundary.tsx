@@ -1,6 +1,5 @@
 import { isRouteErrorResponse, useRouteError } from "@remix-run/react";
 import * as React from "react";
-import { Layout } from "~/components/Layout";
 
 export const ErrorBoundary = () => {
   const error = useRouteError();

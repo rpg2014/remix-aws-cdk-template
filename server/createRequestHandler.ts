@@ -1,11 +1,10 @@
 import { URL } from "url";
-import { Headers as NodeHeaders, Request as NodeRequest, createRequestHandler as createRemixRequestHandler } from "@remix-run/node";
+import { Headers as NodeHeaders, Request as NodeRequest, createRequestHandler as createRemixRequestHandler, installGlobals } from "@remix-run/node";
 
 import type { CloudFrontRequestEvent, CloudFrontRequestHandler, CloudFrontHeaders } from "aws-lambda";
 import type { AppLoadContext, ServerBuild } from "@remix-run/server-runtime";
 
 import type { Response as NodeResponse } from "@remix-run/node";
-import { installGlobals } from "@remix-run/node";
 
 //Is needed?
 installGlobals();

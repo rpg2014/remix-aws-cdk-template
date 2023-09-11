@@ -1,5 +1,6 @@
-import { Form, useActionData, useLoaderData, useNavigation } from "@remix-run/react";
-import { ActionArgs, json, V2_MetaFunction } from "@remix-run/node";
+import { Form, useLoaderData, useNavigation } from "@remix-run/react";
+import type { ActionArgs, V2_MetaFunction } from "@remix-run/node";
+import { json } from "@remix-run/node";
 import { hash } from "~/utils.server";
 
 export const meta: V2_MetaFunction = () => {

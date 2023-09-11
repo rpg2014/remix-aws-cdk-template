@@ -1,5 +1,5 @@
 import { Link } from "@remix-run/react";
-import { LinksFunction } from "@remix-run/node";
+import type { LinksFunction } from "@remix-run/node";
 import stylesUrl from "~/styles/demos/whoa.css";
 
 export let links: LinksFunction = () => {

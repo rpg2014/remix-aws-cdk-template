@@ -1,5 +1,4 @@
 import { createRequestHandler } from "./createRequestHandler";
-import { aws_lambda, aws_lambda_nodejs } from "aws-cdk-lib";
 import { pipeline, Readable } from "stream";
 import * as zlib from "zlib";
 

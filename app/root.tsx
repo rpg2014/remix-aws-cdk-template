@@ -8,10 +8,10 @@ import darkStylesUrl from "~/styles/dark.css";
 
 import favicon from "~/images/favicon.ico";
 import * as EB from "~/components/ErrorBoundary";
-import { isRouteErrorResponse, Link, Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useRouteError } from "@remix-run/react";
 import { Layout } from "~/components/Layout";
 import { Document } from "~/components/Document";
 import { cssBundleHref } from "@remix-run/css-bundle";
+import { Outlet } from "@remix-run/react";
 
 export let links: LinksFunction = () => {
   return [

@@ -1,6 +1,6 @@
 import stylesUrl from "~/styles/demos/about.css";
-import { LinksFunction, V2_MetaFunction } from "@remix-run/node";
-import { Link, Outlet, useOutlet } from "@remix-run/react";
+import type { LinksFunction, V2_MetaFunction } from "@remix-run/node";
+import { Link, Outlet } from "@remix-run/react";
 
 export let meta: V2_MetaFunction = () => {
   return [{ title: "About Remix" }];

@@ -1,6 +1,8 @@
-import { json, LoaderFunction, V2_MetaFunction } from "@remix-run/node";
+import type { LoaderFunction, V2_MetaFunction } from "@remix-run/node";
+import { json } from "@remix-run/node";
 import * as EB from "../components/ErrorBoundary";
-import { useLoaderData, V2_MetaArgs } from "@remix-run/react";
+import type { V2_MetaArgs } from "@remix-run/react";
+import { useLoaderData } from "@remix-run/react";
 
 // The `$` in route filenames becomes a pattern that's parsed from the URL and
 // passed to your loaders so you can look up data.
