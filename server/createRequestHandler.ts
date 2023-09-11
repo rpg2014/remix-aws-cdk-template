@@ -31,7 +31,6 @@ export function createRequestHandler({
   getLoadContext?: GetLoadContextFunction;
   mode?: string;
 }): CloudFrontRequestHandler {
-
   //This gets the server handler from the build files
   let handleRequest = createRemixRequestHandler(build, mode);
 
@@ -71,7 +70,6 @@ export function createCloudFrontHeaders(responseHeaders: NodeHeaders): CloudFron
 
   return headers;
 }
-
 
 export function createRemixHeaders(requestHeaders: CloudFrontHeaders): NodeHeaders {
   let headers = new NodeHeaders();

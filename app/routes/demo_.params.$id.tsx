@@ -59,8 +59,9 @@ export default function ParamDemo() {
 export const ErrorBoundary = EB.ErrorBoundary;
 
 export let meta: V2_MetaFunction = ({ data }: V2_MetaArgs) => {
-    return [{
-        title: data ? `Param: ${data.param}` : "Oops...",
-    }];
+  return [
+    {
+      title: data ? `Param: ${data.param}` : "Oops...",
+    },
+  ];
 };
-

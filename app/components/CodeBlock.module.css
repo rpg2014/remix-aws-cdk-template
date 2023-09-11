@@ -1,0 +1,43 @@
+.codeBlock {
+  font-family: "Courier New", "Source Code Pro for Powerline", monospace;
+  background-color: #3a3a3a;
+  padding: 0.2rem;
+  border-radius: 5px;
+  line-height: 1.7;
+  overflow-x: auto;
+  margin: 0.5rem;
+
+  color: #ffffff;
+}
+
+.codeBlock pre {
+  margin: 0;
+}
+.copyButton {
+  background-color: rgba(0, 123, 255, 0);
+  color: #00c100;
+  border: 1px solid rgb(81, 81, 81);
+
+  border-radius: 3px;
+  padding: 0.2em 0.4rem;
+  margin: 0.2rem 0.1rem 0.2rem 0.5rem;
+  cursor: copy;
+  font-size: 0.875em;
+}
+.small {
+  padding: 0.1rem 0.3rem;
+  font-size: 0.6em;
+}
+.copyButton:hover {
+  background-color: #515151;
+}
+.disabled {
+  cursor: auto;
+}
+.disabled:hover {
+}
+
+.codeContainer {
+  display: flex;
+  align-items: flex-start;
+}

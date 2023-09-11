@@ -94,7 +94,9 @@ export default function ActionsDemo() {
             </a>
           </li>
         </ul>
-        <Link to={'/demo'} prefetch={'intent'}><p>Back to demos</p></Link>
+        <Link to={"/demo"} prefetch={"intent"}>
+          <p>Back to demos</p>
+        </Link>
       </aside>
     </div>
   );

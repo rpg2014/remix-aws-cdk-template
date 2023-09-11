@@ -2284,6 +2284,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@remix-run/css-bundle@npm:^1.19.3":
+  version: 1.19.3
+  resolution: "@remix-run/css-bundle@npm:1.19.3"
+  checksum: b049309f2019a908851f0f9ed602dc9fa9bfcb141d02fe7fd94cef077b3a4021ca2cbf3732c263fd39b31ff0e894d8a9ecec557521d2b88428c1b109d14852a1
+  languageName: node
+  linkType: hard
+
 "@remix-run/dev@npm:^1.19.3":
   version: 1.19.3
   resolution: "@remix-run/dev@npm:1.19.3"
@@ -8687,6 +8694,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "remix-app-template@workspace:."
   dependencies:
+    "@remix-run/css-bundle": ^1.19.3
     "@remix-run/dev": ^1.19.3
     "@remix-run/node": ^1.19.3
     "@remix-run/react": ^1.19.3

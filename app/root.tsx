@@ -11,9 +11,11 @@ import * as EB from "~/components/ErrorBoundary";
 import { isRouteErrorResponse, Link, Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useRouteError } from "@remix-run/react";
 import { Layout } from "~/components/Layout";
 import { Document } from "~/components/Document";
+import { cssBundleHref } from "@remix-run/css-bundle";
 
 export let links: LinksFunction = () => {
   return [
+    ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
     { rel: "icon", href: favicon },
     { rel: "stylesheet", href: globalStylesUrl },
     {
