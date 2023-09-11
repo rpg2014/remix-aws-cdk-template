@@ -4,7 +4,7 @@ export function meta() {
   return [{ title: "Boundaries Demo" }];
 }
 
-export default function Boundaries() {
+export default function ParamsLayout() {
   return (
     <div className="remix__page">
       <main>

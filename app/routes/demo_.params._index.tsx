@@ -1,5 +1,4 @@
-import { useCatch, Link, json, useLoaderData, Outlet } from "remix";
-import type { LoaderFunction } from "remix";
+
 
 export default function Boundaries() {
   return (
