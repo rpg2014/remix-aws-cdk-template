@@ -1,10 +1,6 @@
 import { json, LoaderFunction, V2_MetaFunction } from "@remix-run/node";
 import * as EB from "../components/ErrorBoundary";
-<<<<<<< HEAD
-import { useLoaderData } from "@remix-run/react";
-=======
 import { useLoaderData, V2_MetaArgs } from "@remix-run/react";
->>>>>>> c402317 (Got the infra setup and demos working)
 
 // The `$` in route filenames becomes a pattern that's parsed from the URL and
 // passed to your loaders so you can look up data.
