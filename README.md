@@ -8,10 +8,10 @@ A Remix project template with AWS CDK for easy deployment.
 
 ### Prerequisites
 
-Before you begin, ensure you have met the following requirements:
+Before you begin, ensure you have the following tools installed
 
-- Node.js installed
-- Yarn package manager installed
+- [Node.js](https://github.com/nvm-sh/nvm)
+- [Yarn package manager](https://yarnpkg.com/getting-started/install)
 - AWS CDK installed (you can install it globally with `npm install -g aws-cdk`)
 
 ### Installation
