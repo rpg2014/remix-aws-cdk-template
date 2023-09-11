@@ -1,9 +1,10 @@
 import { useEffect, useRef } from "react";
 
 import { hash } from "~/utils.server";
-import { ActionFunction, redirect } from "@remix-run/server-runtime";
+import type { ActionFunction } from "@remix-run/server-runtime";
+import { redirect } from "@remix-run/server-runtime";
 import { json } from "@remix-run/node";
-import { Form, useActionData } from "@remix-run/react";
+import { Form, Link, useActionData } from "@remix-run/react";
 
 export function meta() {
   return [{ title: "Actions Demo" }];
@@ -36,7 +37,7 @@ export let action: ActionFunction = async ({ request }) => {
   // email or log the user in, etc. It's recommended to redirect after a
   // successful action, even if it's to the same place so that non-JavaScript workflows
   // from the browser doesn't repost the data if the user clicks back.
-  return redirect("/demos/correct");
+  return redirect("/demo/correct");
 };
 
 export default function ActionsDemo() {
@@ -94,6 +95,9 @@ export default function ActionsDemo() {
             </a>
           </li>
         </ul>
+        <Link to={"/demo"} prefetch={"intent"}>
+          <p>Back to demos</p>
+        </Link>
       </aside>
     </div>
   );

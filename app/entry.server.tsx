@@ -25,6 +25,7 @@ export default function handleRequest(
   // edge lambdas are fast enough for this simple app.
   let useStreams = false;
   if (useStreams) {
+    // if the env can use streams, use the new renderToPipeline react functions.
     return isbot(request.headers.get("user-agent"))
       ? handleBotRequestStream(request, responseStatusCode, responseHeaders, remixContext)
       : handleBrowserRequestStream(request, responseStatusCode, responseHeaders, remixContext);

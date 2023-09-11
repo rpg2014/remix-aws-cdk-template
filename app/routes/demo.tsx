@@ -1,11 +1,12 @@
-import { json, LinksFunction, LoaderFunction, V2_MetaFunction } from "@remix-run/node";
+import type { LinksFunction, LoaderFunction, V2_MetaFunction } from "@remix-run/node";
+import { json } from "@remix-run/node";
 import { Link, Outlet, useLoaderData } from "@remix-run/react";
+import stylesUrl from "~/styles/demo.css";
 
 type IndexData = {
   resources: Array<{ name: string; url: string }>;
   demos: Array<{ name: string; to: string }>;
 };
-import stylesUrl from "~/styles/demo.css";
 export let links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: stylesUrl }];
 };
@@ -60,6 +61,10 @@ export let meta: V2_MetaFunction = () => {
 };
 
 // https://remix.run/guides/routing#index-routes
+/**
+ * Without the demo`_` in the child routes, this would render as a layout for a nested route.
+ * @constructor
+ */
 export default function Demo() {
   let data = useLoaderData<IndexData>();
 

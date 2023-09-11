@@ -1,11 +1,10 @@
 import { URL } from "url";
-import { Headers as NodeHeaders, Request as NodeRequest, createRequestHandler as createRemixRequestHandler } from "@remix-run/node";
+import { Headers as NodeHeaders, Request as NodeRequest, createRequestHandler as createRemixRequestHandler, installGlobals } from "@remix-run/node";
 
 import type { CloudFrontRequestEvent, CloudFrontRequestHandler, CloudFrontHeaders } from "aws-lambda";
 import type { AppLoadContext, ServerBuild } from "@remix-run/server-runtime";
 
 import type { Response as NodeResponse } from "@remix-run/node";
-import { installGlobals } from "@remix-run/node";
 
 //Is needed?
 installGlobals();
@@ -31,8 +30,12 @@ export function createRequestHandler({
   getLoadContext?: GetLoadContextFunction;
   mode?: string;
 }): CloudFrontRequestHandler {
+  //This gets the server handler from the build files
   let handleRequest = createRemixRequestHandler(build, mode);
 
+  // Return a handler function that wraps the remix created handlers, converting the requests and responses from the
+  // ones the env (Lambda@edge) expects, to what Remix expects.  Currently just supports These CloudfrontRequests,
+  //TODO: add streaming support
   return (async (event, context) => {
     let request = createRemixRequest(event);
 
@@ -49,6 +52,10 @@ export function createRequestHandler({
   }) as CloudFrontRequestHandler;
 }
 
+/**
+ * Converts NodeHeaders to Cloudfront Headers
+ * @param responseHeaders
+ */
 export function createCloudFrontHeaders(responseHeaders: NodeHeaders): CloudFrontHeaders {
   let headers: CloudFrontHeaders = {};
   let rawHeaders = responseHeaders.raw();
@@ -77,6 +84,10 @@ export function createRemixHeaders(requestHeaders: CloudFrontHeaders): NodeHeade
   return headers;
 }
 
+/**
+ * Converts the Cloudfront Request into a NodeRequest for Remix.
+ * @param event
+ */
 export function createRemixRequest(event: CloudFrontRequestEvent): NodeRequest {
   let request = event.Records[0].cf.request;
 

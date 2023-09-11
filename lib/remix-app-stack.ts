@@ -1,7 +1,8 @@
 import { Bucket } from "aws-cdk-lib/aws-s3";
 import { BucketDeployment, CacheControl, Source } from "aws-cdk-lib/aws-s3-deployment";
-import { Construct } from "constructs";
-import { Duration, RemovalPolicy, Stack, StackProps } from "aws-cdk-lib";
+import type { Construct } from "constructs";
+import type { StackProps } from "aws-cdk-lib";
+import { Duration, RemovalPolicy, Stack } from "aws-cdk-lib";
 import { LogLevel, NodejsFunction, OutputFormat } from "aws-cdk-lib/aws-lambda-nodejs";
 import { RetentionDays } from "aws-cdk-lib/aws-logs";
 import { HttpOrigin, S3Origin } from "aws-cdk-lib/aws-cloudfront-origins";
@@ -19,7 +20,8 @@ import {
   PriceClass,
   ViewerProtocolPolicy,
 } from "aws-cdk-lib/aws-cloudfront";
-import { FunctionUrl, FunctionUrlAuthType, InvokeMode, Runtime } from "aws-cdk-lib/aws-lambda";
+import type { FunctionUrl } from "aws-cdk-lib/aws-lambda";
+import { FunctionUrlAuthType, InvokeMode, Runtime } from "aws-cdk-lib/aws-lambda";
 import path from "path";
 import { Certificate } from "aws-cdk-lib/aws-certificatemanager";
 import { AaaaRecord, ARecord, HostedZone, RecordTarget } from "aws-cdk-lib/aws-route53";
@@ -152,12 +154,15 @@ export class RemixAppStack extends Stack {
       zone: hostedZone,
       target: RecordTarget.fromAlias(new CloudFrontTarget(distribution)),
       recordName: `${props.subDomain}.${props.domainName}`,
+      // if the deploy fails b/c the record already exists, uncomment the below line
+      // deleteExisting: true,
     });
     new AaaaRecord(this, id + "AAAARecord", {
-      deleteExisting: true,
       recordName: `${props.subDomain}.${props.domainName}`,
       zone: hostedZone,
       target: RecordTarget.fromAlias(new CloudFrontTarget(distribution)),
+      // if the deploy fails b/c the record already exists, uncomment the below line
+      // deleteExisting: true,
     });
   }
 }

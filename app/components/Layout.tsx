@@ -11,7 +11,7 @@ export function Layout({ children }: React.PropsWithChildren<{}>) {
     <div className="remix-app">
       <header className="remix-app__header">
         <div className="container remix-app__header-content">
-          <Link to="/" title="Remix" className="remix-app__header-home-link">
+          <Link prefetch={"intent"} to="/" title="Remix" className="remix-app__header-home-link">
             <RemixLogo />
           </Link>
           <nav aria-label="Main navigation" className="remix-app__header-nav">
@@ -27,7 +27,7 @@ export function Layout({ children }: React.PropsWithChildren<{}>) {
                 </Link>
               </li>
               <li>
-                <a href="https://github.com/remix-run/remix">GitHub</a>
+                <a href="https://github.com/rpg2014/remix-aws-cdk-template/">GitHub</a>
               </li>
             </ul>
           </nav>
