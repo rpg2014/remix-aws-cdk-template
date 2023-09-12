@@ -50,7 +50,7 @@ export default function Layout() {
     <div className={"remix__page"}>
       <Posts />
       <Form className={"remix__form"} method="POST">
-        <labe>Create a new post</labe>
+        <label>Create a new post</label>
         <input type={"text"} name={"test"}></input>
         <button disabled={nav.state === "submitting"}>Create post!</button>
       </Form>

@@ -1,6 +1,4 @@
 import { createRequestHandler } from "./createRequestHandler";
-import { pipeline, Readable } from "stream";
-import * as zlib from "zlib";
 
 declare global {
   let awslambda: {
@@ -18,10 +16,10 @@ export const nonStreamingHandler = createRequestHandler({
 
 //TODO: update to use streams,
 //https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html
-// if dev, run an express handler or  something, or just remix dev, in prod  run this handler
-export const streamingHandler = awslambda.streamifyResponse(async (event, responseStream, _context) => {
-  // As an example, convert event to a readable stream.
-  const requestStream = Readable.from(Buffer.from(JSON.stringify(event)));
+// Lambda streaming handler, but needs work
+// export const streamingHandler = awslambda.streamifyResponse(async (event, responseStream, _context) => {
+//   // As an example, convert event to a readable stream.
+//   const requestStream = Readable.from(Buffer.from(JSON.stringify(event)));
 
-  await pipeline(requestStream, zlib.createGzip(), responseStream);
-});
+//   await pipeline(requestStream, zlib.createGzip(), responseStream);
+// });

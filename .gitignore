@@ -1,6 +1,7 @@
 node_modules
 
 /.cache
+.yarn/install-state.gz
 /build
 /public/build
 /server/build

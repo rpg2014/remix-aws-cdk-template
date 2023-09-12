@@ -12,13 +12,17 @@
  */
 
 :root {
-  --color-foreground: hsl(0, 0%, 100%);
+  --color-foreground: hsl(0, 0%, 0%);
   --color-background: hsl(218, 100%, 50%);
-  --color-links: hsl(91, 56%, 39%);
-  --color-links-hover: hsl(347, 100%, 48%);
-  --color-border: rgb(184, 173, 20);
+  --color-links: hsl(94, 68%, 29%);
+  --color-links-hover: hsl(0, 98%, 60%);
+  --color-border: rgb(134, 134, 134);
   --font-body: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
-  --background-image: url("../images/favicon.ico");
+  --background-image: url("../images/forest.jpg");
+}
+
+.demo-aside {
+  background-color: rgb(61, 61, 61, 0.85);
 }
 
 .about__intro {

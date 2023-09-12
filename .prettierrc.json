@@ -1,5 +1,6 @@
 {
   "printWidth": 160,
   "tabWidth": 2,
-  "arrowParens": "avoid"
+  "arrowParens": "avoid",
+  "endOfLine": "lf"
 }

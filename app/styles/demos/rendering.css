@@ -1,0 +1,48 @@
+:root {
+  --color-foreground: hsl(0, 0%, 100%);
+  --color-background: hsl(0, 0%, 7%);
+  --background-image: null;
+  --color-links: hsl(213, 100%, 73%);
+  --color-links-hover: hsl(213, 100%, 80%);
+  --color-border: hsl(0, 0%, 25%);
+}
+
+.renderingNav {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  /* align-items: center; */
+}
+
+.renderingTabs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.renderingTab {
+  border: 1px solid var(--color-border);
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  font-weight: bold;
+  color: var(--color-links);
+  background-color: var(--color-background);
+  transition: background-color 400ms ease-in-out;
+}
+.renderingTab:hover {
+  background-color: rgba(16, 77, 19, 0.699);
+  cursor: pointer;
+}
+.renderingTab.active {
+  background-color: rgba(16, 77, 19, 0.699);
+}
+.renderingTab.bad {
+  border-color: rgba(255, 4, 4, 0.452);
+}
+.renderingTab.bad:hover {
+  background-color: rgba(255, 4, 4, 0.452);
+}
+.renderingTab.bad.active {
+  background-color: rgba(255, 4, 4, 0.452);
+}

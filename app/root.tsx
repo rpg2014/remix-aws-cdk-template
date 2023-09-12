@@ -22,8 +22,7 @@ export let links: LinksFunction = () => {
       href: darkStylesUrl,
       media: "(prefers-color-scheme: dark)",
     },
-      ...LayoutLinks()
-
+    ...LayoutLinks(),
   ];
 };
 

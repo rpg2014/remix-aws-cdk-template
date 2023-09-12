@@ -1,4 +1,4 @@
-import type { MouseEventHandler } from "react";
+import type { MouseEventHandler, ReactNode } from "react";
 import { useState } from "react";
 
 import styles from "./CodeBlock.module.css";
@@ -6,12 +6,17 @@ import styles from "./CodeBlock.module.css";
 // export const links = () => [
 //     { rel: "stylesheet", href: styles },
 // ];
-export const CodeBlock = ({ text, inline, children }) => {
+type CodeBlockProps = {
+  text?: string;
+  inline?: boolean;
+  children?: ReactNode;
+};
+export const CodeBlock = ({ text, inline, children }: CodeBlockProps) => {
   const [copied, setCopied] = useState(false);
   const copyText: MouseEventHandler<HTMLButtonElement> | undefined = async e => {
     e.stopPropagation();
     let textToCopy = text ? text : children;
-    await navigator.clipboard.writeText(textToCopy);
+    await navigator.clipboard.writeText(textToCopy ? textToCopy.toString() : "");
     setCopied(true);
     setTimeout(() => setCopied(false), 1000);
   };

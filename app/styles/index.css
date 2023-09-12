@@ -1,9 +1,9 @@
-.indexMain{
-    margin: auto;
+.indexMain {
+  margin: auto;
 }
 
 .indexContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

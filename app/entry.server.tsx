@@ -11,6 +11,7 @@ import { Response } from "@remix-run/node";
 import { RemixServer } from "@remix-run/react";
 import isbot from "isbot";
 import { renderToPipeableStream, renderToString } from "react-dom/server";
+import { useStreams } from "./routes/demo.rendering.ssr";
 
 const ABORT_DELAY = 5_000;
 
@@ -21,9 +22,7 @@ export default function handleRequest(
   remixContext: EntryContext,
   loadContext: AppLoadContext,
 ) {
-  //TODO: figure out how to get get this from cdk, prob envvars, but can wait as AWS support for http streams is bad, and
-  // edge lambdas are fast enough for this simple app.
-  let useStreams = false;
+  // If using https streaming, use the new react 18 api's, otherwise use the old renderToString.  renderToString doesn't support suspense on the server
   if (useStreams) {
     // if the env can use streams, use the new renderToPipeline react functions.
     return isbot(request.headers.get("user-agent"))

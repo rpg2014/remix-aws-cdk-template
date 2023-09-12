@@ -2,7 +2,7 @@ import * as React from "react";
 import { Link } from "@remix-run/react";
 import layoutStyles from "~/styles/layout.css";
 
-export const links = () => [{rel: "stylesheet", href: layoutStyles}]
+export const links = () => [{ rel: "stylesheet", href: layoutStyles }];
 
 /**
  * Header and footer that will be present on every route, think of it as the shell app.

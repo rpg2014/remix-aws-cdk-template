@@ -10,9 +10,10 @@
     "dev": "remix dev",
     "deploy": "yarn build && cdk deploy --profile personal",
     "diff": "yarn build && cdk diff --profile personal",
+    "synth": "cdk synth",
     "postinstall": "remix setup node",
     "start": "remix-serve build/server",
-    "clean": "rm -rf build",
+    "clean": "rm -rf build node_modules",
     "lint": "yarn prettier . --write && yarn run eslint . --fix"
   },
   "dependencies": {
