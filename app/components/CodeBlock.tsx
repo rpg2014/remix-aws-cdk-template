@@ -11,6 +11,11 @@ type CodeBlockProps = {
   inline?: boolean;
   children?: ReactNode;
 };
+/**
+ *
+ * @param param0
+ * @returns
+ */
 export const CodeBlock = ({ text, inline, children }: CodeBlockProps) => {
   const [copied, setCopied] = useState(false);
   const copyText: MouseEventHandler<HTMLButtonElement> | undefined = async e => {
@@ -37,16 +42,16 @@ export const CodeBlock = ({ text, inline, children }: CodeBlockProps) => {
   );
   if (inline) {
     return (
-      <span className={styles.codeBlock}>
-        <code>{text ? text : children}</code>
+      <span className={`${styles.codeBlock} ${styles.codeContainer}`}>
+        <code className={styles.codeBlockText}>{text ? text : children}</code>
         <CopyButton small />
       </span>
     );
   }
   return (
-    <div className={styles.codeContainer}>
-      <pre className={styles.codeBlock}>
-        <code>{text ? text : children}</code>
+    <div>
+      <pre className={`${styles.codeBlock} ${styles.codeContainer}`}>
+        <code className={styles.codeBlockText}>{text ? text : children}</code>
         <CopyButton />
       </pre>
     </div>

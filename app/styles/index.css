@@ -1,9 +1,25 @@
 .indexMain {
   margin: auto;
+  /* width: min-content; */
+  --gap: 2rem;
+}
+.description {
+}
+.remix__page {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .indexContainer {
+  --gap: 1rem;
+  --space: 1rem;
+  padding-top: var(--space);
+  padding-bottom: var(--space);
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
+  width: auto;
 }

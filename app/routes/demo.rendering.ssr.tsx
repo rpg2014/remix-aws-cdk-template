@@ -5,11 +5,12 @@ import { Suspense } from "react";
 import * as EB from "~/components/ErrorBoundary";
 import { DateFn, getDate } from "./demo.rendering";
 import { CodeBlock } from "~/components/CodeBlock";
+import { ClientSideDate } from "~/components/ClientSideDate";
 
 //This variable controls using HTTP streaming, using React 18's new streaming apis.
 // This is not supported on all hosting platforms, mainly Lambda, but works on most bare metal hosting servers
 //TODO: get from env var.
-export const useStreams = false;
+export const useStreams = true;
 
 export const meta: V2_MetaFunction = () => {
   return [{ title: "Server Side Rendering Streaming demo" }];
@@ -18,10 +19,12 @@ export const meta: V2_MetaFunction = () => {
 export async function loader() {
   if (useStreams) {
     return defer({
+      f: fetch("https://google.com"),
       date: getDate(),
-    });
+    }, {status: 200, headers: {"cache-control": "max-age=1, stale-while-revalidate=59"}});
   } else {
     return defer({
+      f: await fetch("https://google.com"),
       date: await getDate(),
     });
   }
@@ -37,22 +40,35 @@ export default function Index() {
       <p>{useStreams ? "Using Streaming" : "Not using Streaming"}</p>
       {useStreams ? (
         <p>
-          This page is loaded asynchronously. The data below will be populated once the defered promise is resolved, and will then be streamed from the server{" "}
+          This page is loaded asynchronously. The loading request is kicked off, and the component is rendered up to the suspense and then streamed to the
+          client. Once the defered promise is resolved, the results are streamed to the server.
         </p>
       ) : (
         <p>The page is loaded synchronously on the server. The loader promise is resolved before any HTML is returned.</p>
       )}
 
       {useStreams ? (
-        <Suspense fallback={<h3>Loading Deferred Data...</h3>}>
-          <Await resolve={data.date}>{date => <DateFn date={date} />}</Await>
+        <><Suspense fallback={<h3>Waiting for deferred data...</h3>}>
+          <Await resolve={data.date}>{date => <DateFn text="Server Loaded" date={date} />}</Await>
+          
         </Suspense>
+        <Suspense fallback={<h3>ServerFallback for ClientSideDate</h3>}>
+        <Await resolve={data.date}>
+          <ClientSideDate text={"Client side loaded"} />
+          </Await>
+        </Suspense></>
       ) : (
+        <>
         <DateFn date={data.date} />
+        <Suspense fallback={<h3>ServerFallback for ClientSideDate</h3>}>
+        <Await resolve={data.date}>
+          <ClientSideDate />
+          </Await>
+        </Suspense></>
       )}
       <p>This uses the loader syntax from remix, with the useLoaderData hook {useStreams ? "and Suspense + Await" : ""}</p>
       <CodeBlock>{`export async function loader() {
-  return defer | json | redirect({
+  return defer({
     results: ${!useStreams ? "await " : ""}getDataFromSomewhere(),
   });
 };
