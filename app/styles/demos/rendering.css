@@ -23,12 +23,16 @@
 
 .renderingTab {
   border: 1px solid var(--color-border);
-  padding: 1rem 2rem;
+  padding: 0.5rem 0.5rem;
+  margin: 0.5rem;
   border-radius: 5px;
   font-weight: bold;
   color: var(--color-links);
   background-color: var(--color-background);
   transition: background-color 400ms ease-in-out;
+  text-align: center;
+  width: fit-content;
+  word-wrap: normal;
 }
 .renderingTab:hover {
   background-color: rgba(16, 77, 19, 0.699);

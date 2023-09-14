@@ -4,14 +4,22 @@
   padding: 0.2rem;
   border-radius: 5px;
   line-height: 1.7;
-  overflow-x: auto;
   margin: 0.5rem;
-
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: max-content;
+  justify-content: start;
   color: #ffffff;
 }
 
 .codeBlock pre {
   margin: 0;
+}
+.codeBlock code {
+  
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
 }
 .copyButton {
   background-color: rgba(0, 123, 255, 0);
@@ -38,6 +46,23 @@
 }
 
 .codeContainer {
-  display: flex;
   align-items: flex-start;
+  
+  word-wrap: break-word;
+  /* make a max width here */
+  width: fit-content;
+  /* max-width: 75%; */
 }
+
+.codeBlockText {
+  /* overflow-wrap: break-word;  */
+  overflow: auto;
+  vertical-align: middle;
+  align-items: center;
+  /* word-break: break-all; */
+  /* width: 100%; */
+}
+
+/* Responsive styles for smaller screens */
+
+/* } */

@@ -1,48 +1,54 @@
-import { useLoaderData } from "@remix-run/react";
-import { defer } from "@remix-run/server-runtime";
-import { useEffect, useState } from "react";
-
-import { DateFn, getDate } from "./demo.rendering";
+import { Suspense } from "react";
 import { useStreams } from "./demo.rendering.ssr";
+import { ClientSideDate } from "~/components/ClientSideDate";
+import { CodeBlock } from "~/components/CodeBlock";
+import { V2_MetaFunction } from "@remix-run/node";
 
-export async function loader() {
-  return defer({
-    date: getDate(),
-  });
-}
+
+
+export const meta: V2_MetaFunction = () => {
+  return [{ title: "CSR Fetching with Suspense Demo" }];
+};
 
 /**
- * This currently doens't work.
+ *
+ *
+ * Update to https://remix.run/docs/en/main/guides/migrating-react-router-app#client-only-components
+ * for client side render components.
  * @returns
  */
 export default function Index() {
-  const data = useLoaderData<typeof loader>();
-
-  const [ld, setLd] = useState<string>("Initial component state ");
-
-  useEffect(() => {
-    setLd("Resolving promise from loader data");
-    const resolveDate = async () => {
-      //throw if not on the client
-      if (typeof window === "undefined") {
-        throw Error("Chat should only render on the client.");
-      }
-      setLd(await data.date);
-    };
-    resolveDate();
-  }, [data.date]);
-
   return (
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
-      <h2>Defer Without streaming demo</h2>
+      <h2>Client Side Data Fetching with Suspense Demo</h2>
       <p>{useStreams ? "Using Streaming" : "Not using Streaming"}</p>
-      <p>Renders on the server, then awaits the returned promise on the client side. Throws an error when rendered on the server side without streaming</p>
-      <DateFn date={ld} />
-      <p>This only seems to work when we do a client side navigation to the page, it throws an error when rendered on the server, without using streams</p>
-      <p>With streaming on, this works just like the suspense / await code, and is probably simlar to what the useAsyncValue hook does</p>
-      <p style={{ color: "red", backgroundColor: "rgb(62, 30, 30)", borderRadius: "5px", padding: "15px" }}>
-        This seems to be a bad pattern, and I wouldn't use it. Either go full CSR, or find a compute platform that supports streaming (ie, not Lambda)
+      <p>
+        Renders on the server up to the suspense boundary, and then the ClientSideDate component handles loading the data via a suspense enabled library (SWR).
       </p>
+      {/* Add client side only wrapper around this */}
+      <Suspense fallback={<h3>Server Side Fallback</h3>}>
+        <ClientSideDate text={"Client Side Loaded"} />
+      </Suspense>
+      <p>
+        The difference between this and the SSR with streaming demo is that in this demo, the request is sent from the browser, and in the SSR demo it's sent
+        from t he server
+      </p>
+      <p>This approach suffers from the same drawbacks as the Client Side effect demo, but also has the same advantages</p>
+      
+      <CodeBlock>{`import {ClientSideDate} from 'ClientSideDate.client.tsx';
+
+<Suspense fallback={<h3>Server Side Fallback</h3>}>
+      {<ClientSideDate />}
+</Suspense>
+
+//ClientSideDate.client.tsx
+export function ClientSideDate() {
+  const [date, setDate] = useState<string>("initial data");
+  const swrDate = useSWR("date", async ()=> await getDate(), {suspense: true})
+  return (
+    <DateFn date={swrDate?.data} />
+  )
+}`}</CodeBlock>
     </div>
   );
 }

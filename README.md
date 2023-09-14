@@ -102,13 +102,27 @@ auth site will login user, and set cookie for main domain
 if cookie present, will validate with well-known file and then create session.
 https://github.com/sergiodxa/remix-auth
 
-#### Add support for node js Stream responses + react 18's renderToPipeableStream.
+#### Route animations
+
+https://github.com/remix-run/examples/blob/main/framer-route-animation/app/root.tsx
+
+#### CSRF
+
+https://github.com/sergiodxa/remix-utils/tree/main#csrf
+
+#### SASS, WASM, Toasts
+
+https://github.com/remix-run/examples/tree/main/sass
+https://github.com/remix-run/examples/tree/main/rust
+
+#### Add support for Stream responses + react 18's renderTo\*Stream.
 
 To do this I'll have to change the compute type, as lambda only supports http streaming via function urls, which you can't put behind a cdn, and i dont want to have to figure out how to dynamically map to the function url.
 
 So instead i'll cook up some support via ECS, and hopfully be able to scale down to 0 or something.
 
 - Use an express server to serve the routes, or just remix serve. express would give me more options to configure.
+- - Should really use bun, creating a request handler [like so](https://github.com/jacob-ebey/remix-bun/blob/main/start.ts)
 - can use [this](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_ecs_patterns.ApplicationLoadBalancedFargateService.html) for the container service.
 - Can plug the load balancer directly into the cloudfront distribution instead of the s3 + edge functions.
 
