@@ -19,7 +19,7 @@ new RemixAppStack(app, "RemixStack", {
   certificateArn: "arn:aws:acm:us-east-1:593242635608:certificate/e4ad77f4-1e1b-49e4-9afb-ac94e35bc378",
   domainName: "parkergiven.com",
   subDomain: "remix-template",
-  computeType: "EdgeFunction",
+  computeType: "EdgeFunction", //useStreams ? "HTTPStreaming" : "EdgeFunction",
   hostedZoneId: "ZSXXJQ44AUHG2",
   /* For more information, see https://docs.aws.amazon.com/cdk/latest/guide/environments.html */
 });

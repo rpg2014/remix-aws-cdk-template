@@ -23,7 +23,6 @@ export default function Index() {
     useEffect(() => setState(await fetchData()), []);
     return <Component data={state.results}/>
 }`}</CodeBlock>
-
     </div>
   );
 }

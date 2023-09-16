@@ -17,7 +17,6 @@
   margin: 0;
 }
 .codeBlock code {
-  
   white-space: pre-wrap;
   overflow-wrap: break-word;
 }
@@ -47,7 +46,7 @@
 
 .codeContainer {
   align-items: flex-start;
-  
+
   word-wrap: break-word;
   /* make a max width here */
   width: fit-content;

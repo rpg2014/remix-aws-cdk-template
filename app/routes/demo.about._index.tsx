@@ -1,5 +1,7 @@
 import { Link } from "@remix-run/react";
+import stylesUrl from "~/styles/demos/about.index.css";
 
+export const links = () => [{ rel: "stylesheet", href: stylesUrl }];
 export default function AboutIndex() {
   return (
     <div>
