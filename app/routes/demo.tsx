@@ -52,6 +52,10 @@ export const loader: LoaderFunction = () => {
         to: "rendering",
         name: "Different ways of rendering using react 18",
       },
+      {
+        to: "search-params",
+        name: "URL Search Params",
+      },
     ],
   };
 

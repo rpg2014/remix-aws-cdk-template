@@ -11,7 +11,7 @@ import { Response } from "@remix-run/node";
 import { RemixServer } from "@remix-run/react";
 import isbot from "isbot";
 import { renderToPipeableStream, renderToString } from "react-dom/server";
-import { useStreams } from "./routes/demo.rendering.ssr";
+import { useStreams } from "../lib/constants";
 
 const ABORT_DELAY = 5_000;
 

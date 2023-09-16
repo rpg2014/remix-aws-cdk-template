@@ -12,7 +12,7 @@ export let links: LinksFunction = () => {
 
 export default function Index() {
   return (
-    <div className="about remix__page">
+    <div className="about">
       <div className="about__intro">
         <h2>About Us</h2>
         <p>

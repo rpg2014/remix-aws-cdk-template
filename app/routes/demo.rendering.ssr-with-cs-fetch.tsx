@@ -1,10 +1,8 @@
 import { Suspense } from "react";
-import { useStreams } from "./demo.rendering.ssr";
 import { ClientSideDate } from "~/components/ClientSideDate";
 import { CodeBlock } from "~/components/CodeBlock";
-import { V2_MetaFunction } from "@remix-run/node";
-
-
+import type { V2_MetaFunction } from "@remix-run/node";
+import { useStreams } from "../../lib/constants";
 
 export const meta: V2_MetaFunction = () => {
   return [{ title: "CSR Fetching with Suspense Demo" }];
@@ -34,7 +32,7 @@ export default function Index() {
         from t he server
       </p>
       <p>This approach suffers from the same drawbacks as the Client Side effect demo, but also has the same advantages</p>
-      
+
       <CodeBlock>{`import {ClientSideDate} from 'ClientSideDate.client.tsx';
 
 <Suspense fallback={<h3>Server Side Fallback</h3>}>
@@ -43,8 +41,9 @@ export default function Index() {
 
 //ClientSideDate.client.tsx
 export function ClientSideDate() {
+  const value = useAsyncValue();
   const [date, setDate] = useState<string>("initial data");
-  const swrDate = useSWR("date", async ()=> await getDate(), {suspense: true})
+  const swrDate = useSWR("date", async ()=> await getDate(), {suspense: true, fallbackData: value})
   return (
     <DateFn date={swrDate?.data} />
   )

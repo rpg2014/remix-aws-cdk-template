@@ -1,5 +1,6 @@
-import { NavLink, Outlet, useNavigation } from "@remix-run/react";
-import { Suspense } from "react";
+import { NavLink, Outlet, useNavigation, useOutletContext } from "@remix-run/react";
+import { Suspense, useState } from "react";
+
 import styles from "~/styles/demos/rendering.css";
 
 export const links = () => [{ rel: "stylesheet", href: styles }];
@@ -10,12 +11,23 @@ export const getDate = async () => {
 
   return new Date().toUTCString();
 };
-export const DateFn = ({ date,text }: { date: string, text: string }) => {
-  return <><h4 style={{ marginBottom: "0", paddingBottom: "0"}}>The date is: {date}  </h4>
-  <p style={{marginTop: "0"}}>{text}</p></>;
+export const DateFn = ({ date, text }: { date: string; text: string }) => {
+  return (
+    <>
+      <h4 style={{ marginBottom: "0", paddingBottom: "0" }}>The date is: {date} </h4>
+      <p style={{ marginTop: "0" }}>{text}</p>
+    </>
+  );
+};
+
+export type RenderingDemoContext = { useCache: boolean };
+
+export const useCacheValue = () => {
+  return useOutletContext<RenderingDemoContext>();
 };
 
 export default function RenderingLayout() {
+  const [useCache, setUseCache] = useState(false);
   const nav = useNavigation();
   return (
     <>
@@ -29,14 +41,20 @@ export default function RenderingLayout() {
           <NavLink prefetch="intent" className="renderingTab" to="csr">
             Client-side Effect
           </NavLink>
-          <NavLink prefetch="intent" className={"renderingTab "} to={"ssr-with-csr"}>
+          <NavLink prefetch="intent" className={"renderingTab "} to={"ssr-with-cs-fetch"}>
             Client with Suspense
           </NavLink>
         </nav>
-        <p style={{ marginBottom: "0" }}>Page State: {nav.state}</p>
+        <div className="optionsContainer">
+          <p style={{ marginBottom: "0" }}>Page State: {nav.state}</p>
+          <div>
+            <label htmlFor="useCache">Use SWR Cache</label>
+            <input type="checkbox" checked={useCache} onChange={e => setUseCache(e.target.checked)}></input>
+          </div>
+        </div>
       </div>
       <Suspense fallback={<div>Loading...</div>}>
-        <Outlet />
+        <Outlet context={{ useCache }} />
       </Suspense>
     </>
   );
