@@ -1,5 +1,5 @@
 import { defer, json } from "@remix-run/node";
-import type { MetaFunction} from "@remix-run/react";
+import type { MetaFunction } from "@remix-run/react";
 import { Await, useLoaderData } from "@remix-run/react";
 import { Suspense } from "react";
 import * as EB from "~/components/ErrorBoundary";

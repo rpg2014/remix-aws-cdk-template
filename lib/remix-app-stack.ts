@@ -65,7 +65,7 @@ export class RemixAppStack extends Stack {
       entry: "./server/index.ts",
       handler: isStreamingFunction ? "streamingHandler" : "nonStreamingHandler",
       logRetention: RetentionDays.THREE_DAYS,
-      memorySize: 1024,
+      memorySize: 256,
       timeout: Duration.seconds(10),
       runtime: Runtime.NODEJS_18_X,
 
@@ -77,6 +77,17 @@ export class RemixAppStack extends Stack {
         logLevel: LogLevel.INFO,
         minify: true,
         tsconfig: path.join(__dirname, "../tsconfig.json"),
+        commandHooks: {
+          afterBundling(inputDir, outputDir) {
+            return [
+              `cp ${inputDir}/rust-functions/pkg/rust-functions_bg.wasm ${outputDir}`,
+              `cp ${inputDir}/build/server/*.map ${outputDir}`,
+              `cp ${inputDir}/build/server/*.json ${outputDir}`,
+            ];
+          },
+          beforeBundling: (inputDir: string, outputDir: string): string[] => [],
+          beforeInstall: (inputDir: string, outputDir: string): string[] => [],
+        },
       },
     });
 
@@ -88,7 +99,6 @@ export class RemixAppStack extends Stack {
         invokeMode: InvokeMode.RESPONSE_STREAM,
         authType: FunctionUrlAuthType.NONE,
       });
-      console.log(url.url);
     }
 
     const distribution = new Distribution(this, id + "Distribution", {

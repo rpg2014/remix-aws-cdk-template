@@ -17,6 +17,7 @@
     "postinstall": "remix setup node",
     "start": "remix-serve build/server",
     "clean": "rm -rf build node_modules rust-functions/pkg",
+    "test": "jest .",
     "lint": "yarn prettier . --write && yarn run eslint . --fix"
   },
   "dependencies": {

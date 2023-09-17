@@ -9220,8 +9220,8 @@ __metadata:
 
 "rust-functions@file:./rust-functions/pkg::locator=remix-app-template%40workspace%3A.":
   version: 0.1.0
-  resolution: "rust-functions@file:./rust-functions/pkg#./rust-functions/pkg::hash=fcff30&locator=remix-app-template%40workspace%3A."
-  checksum: 57fd45d01fb131eede89c8a394105e7f549cc372cdf8a2fec8365a53afe130e89960eb1432d50e3cbfcc3c49b3dd52f02cd4b11d16a1bf8de3e1a23da4e9efe9
+  resolution: "rust-functions@file:./rust-functions/pkg#./rust-functions/pkg::hash=e479ae&locator=remix-app-template%40workspace%3A."
+  checksum: 7d56a80d2e2b2dfe50dabd1501164f5d81b0b258ad550c0b10c29711d083274b907f8c93d830781d982c0c50c203408ec767813f940cdf54749a1d75e104af9d
   languageName: node
   linkType: hard
 
