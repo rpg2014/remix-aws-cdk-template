@@ -13,7 +13,7 @@
 
 :root {
   --color-foreground: hsl(0, 0%, 0%);
-  --color-background: hsl(218, 100%, 50%);
+  /* --color-background: hsl(218, 100%, 50%); */
   --color-links: hsl(94, 68%, 29%);
   --color-links-hover: hsl(0, 98%, 60%);
   --color-border: rgb(134, 134, 134);

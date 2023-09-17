@@ -110,10 +110,7 @@ https://github.com/remix-run/examples/blob/main/framer-route-animation/app/root.
 
 https://github.com/sergiodxa/remix-utils/tree/main#csrf
 
-#### SASS, WASM, Toasts
-
-https://github.com/remix-run/examples/tree/main/sass
-https://github.com/remix-run/examples/tree/main/rust
+#### Toast
 
 #### Add support for Stream responses + react 18's renderTo\*Stream.
 

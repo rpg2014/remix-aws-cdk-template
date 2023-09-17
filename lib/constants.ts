@@ -1,1 +1,1 @@
-export const useStreams = true;
+export const useStreams = false;

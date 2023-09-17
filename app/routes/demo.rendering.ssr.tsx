@@ -1,5 +1,5 @@
-import { defer } from "@remix-run/node";
-import type { V2_MetaFunction } from "@remix-run/react";
+import { defer, json } from "@remix-run/node";
+import type { MetaFunction} from "@remix-run/react";
 import { Await, useLoaderData } from "@remix-run/react";
 import { Suspense } from "react";
 import * as EB from "~/components/ErrorBoundary";
@@ -12,7 +12,7 @@ import { useStreams } from "../../lib/constants";
 // This is not supported on all hosting platforms, mainly Lambda, but works on most bare metal hosting servers
 //TODO: get from env var.
 
-export const meta: V2_MetaFunction = () => {
+export const meta: MetaFunction = () => {
   return [{ title: "Server Side Rendering Streaming demo" }];
 };
 
@@ -23,13 +23,19 @@ export async function loader() {
         f: fetch("https://google.com"),
         date: getDate(),
       },
-      { status: 200, headers: { "cache-control": "max-age=1, stale-while-revalidate=59" } },
+      { status: 200, headers: { "cache-control": "max-age=29, stale-while-revalidate=119" } },
     );
   } else {
-    return defer({
-      f: await fetch("https://google.com"),
-      date: await getDate(),
-    });
+    return json(
+      {
+        f: await fetch("https://google.com"),
+        date: await getDate(),
+      },
+      {
+        status: 200,
+        headers: { "cache-control": "max-age=29, stale-while-revalidate=119" },
+      },
+    );
   }
 }
 

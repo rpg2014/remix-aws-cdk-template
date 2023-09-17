@@ -1,9 +1,9 @@
-import { Form, Link, useFetcher, useLoaderData, useNavigation, useSearchParams, useSubmit } from "@remix-run/react";
-import type { LoaderArgs } from "@remix-run/server-runtime";
+import { Form, useFetcher, useLoaderData, useNavigation, useSearchParams, useSubmit } from "@remix-run/react";
+import type { LoaderFunctionArgs } from "@remix-run/server-runtime";
 import { useEffect } from "react";
 import * as EB from "~/components/ErrorBoundary";
 
-export const loader = async ({ request }: LoaderArgs) => {
+export const loader = async ({ request }: LoaderFunctionArgs) => {
   const url = new URL(request.url);
   if (url.searchParams.get("q") === "400") {
     throw new Response("Bad Request", { status: 400 });
@@ -11,7 +11,7 @@ export const loader = async ({ request }: LoaderArgs) => {
   return { q: url.searchParams.has("q") ? `Received query param: ${url.searchParams.get("q")} on the backend` : "No query param in request" };
 };
 export default function Index() {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const { q } = useLoaderData();
   const nav = useNavigation();
 
@@ -47,22 +47,18 @@ export default function Index() {
 // In this form, the fetcher is could be used for an autocomplete api, and the navigation / submit would be for the actual searches
 const QueryParamForm = () => {
   const [searchParams] = useSearchParams();
-  const nav = useNavigation();
   const submit = useSubmit();
   const fetcher = useFetcher();
 
-  // empty value when q is empty\
-  const q = searchParams.get("q")
+  // empty value when q is empty
+  const q = searchParams.get("q");
   useEffect(() => {
-    if (q !== null && q !== undefined && q !== "") {
-      // document.getElementById("q").value = searchParams.get("q");
-    } else {
+    if (!(q !== null && q !== undefined && q !== "")) {
       //@ts-ignore
       document.getElementById("q").value = "";
     }
-  }, [searchParams ,]);
+  }, [q]);
 
-  const searching = nav.location && new URLSearchParams(nav.location.search).has("q");
   const fetcherSearching = fetcher.state === "submitting" || fetcher.state === "loading";
 
   return (

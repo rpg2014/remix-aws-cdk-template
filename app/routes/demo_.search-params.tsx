@@ -1,4 +1,4 @@
-import {  Link, Outlet} from "@remix-run/react";
+import { Link, Outlet } from "@remix-run/react";
 
 import * as EB from "~/components/ErrorBoundary";
 
@@ -6,7 +6,6 @@ export default function Index() {
   return (
     <div className="remix__page">
       <main>
-        
         <Outlet />
       </main>
       <aside>

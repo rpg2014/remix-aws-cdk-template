@@ -1,0 +1,31 @@
+:root {
+  --color-foreground: black;
+  --color-links: rgb(0, 0, 107);
+}
+
+.scss-box {
+  border: hsl(192, 93%, 60%);
+  border-radius: 15px;
+  background-color: rgba(242, 242, 242, 0.5);
+  padding: 0.5rem 1rem;
+  color: rgb(15, 14, 14);
+  box-shadow:
+    rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
+  transition: 200ms all ease-in-out;
+  &:hover {
+    border-radius: 0;
+    box-shadow:
+      rgba(0, 0, 0, 0.3) 0px 19px 38px,
+      rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    transform: scale(1.1);
+  }
+  &:active {
+    box-shadow:
+      rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+      rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    transform: scale(0.9);
+    border-radius: 30px;
+  }
+}

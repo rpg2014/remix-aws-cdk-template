@@ -13,6 +13,11 @@ export default function AboutIndex() {
           <Link to="whoa">Check out one of them here.</Link>
         </strong>
       </p>
+      <p>
+        <strong>
+          <Link to="scss">Check out one that uses scss</Link>
+        </strong>
+      </p>
     </div>
   );
 }

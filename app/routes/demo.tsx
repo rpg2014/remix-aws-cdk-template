@@ -56,6 +56,10 @@ export const loader: LoaderFunction = () => {
         to: "search-params",
         name: "URL Search Params",
       },
+      {
+        to: "rust",
+        name: "Rust and WASM demo",
+      },
     ],
   };
 

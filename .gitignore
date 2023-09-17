@@ -8,3 +8,9 @@ node_modules
 
 .cdk.staging
 cdk.out
+
+
+#Ignores for scss, I think it makes sense to ignore the sass generated css files.
+*.css.map
+app/styles/demos/about.scss.css
+app/styles/demos/rust.css

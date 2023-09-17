@@ -99,7 +99,7 @@
   margin: 0;
   padding: 1.5ch 2ch;
   border: solid 1px var(--color-border);
-  border-radius: 0.5rem;
+  border-radius: var(--border-radius);
 }
 
 .remix__page > aside > :first-child {

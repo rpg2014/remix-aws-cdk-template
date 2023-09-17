@@ -3,4 +3,6 @@
   --color-background: hsl(56, 100%, 50%);
   --color-links: hsl(0, 93%, 60%);
   --color-links-hover: hsl(345, 86%, 42%);
+
+  --background-image: none;
 }

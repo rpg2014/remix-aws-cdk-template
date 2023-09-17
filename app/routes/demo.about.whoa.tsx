@@ -2,6 +2,10 @@ import { Link } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
 import stylesUrl from "~/styles/demos/whoa.css";
 
+export const meta = () => {
+  return [{ title: "Nested CSS" }];
+};
+
 export let links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: stylesUrl }];
 };
