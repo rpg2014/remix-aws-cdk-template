@@ -26,7 +26,7 @@ export const CodeBlock = ({ text, inline, children }: CodeBlockProps) => {
     setTimeout(() => setCopied(false), 1000);
   };
   const CopyButton = ({ small }: { small?: boolean } = {}) => (
-    <button disabled={copied} data-text={text} onClick={copyText} className={`${styles.copyButton}  ${small && styles.small} ${copied ? styles.disabled : ""}`}>
+    <button name="copy" disabled={copied} data-text={text} onClick={copyText} className={`${styles.copyButton}  ${small && styles.small} ${copied ? styles.disabled : ""}`}>
       {copied ? (
         "✓"
       ) : (
