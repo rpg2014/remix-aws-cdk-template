@@ -8569,13 +8569,13 @@ __metadata:
   linkType: hard
 
 "postcss@npm:^8.4.19, postcss@npm:^8.4.27":
-  version: 8.4.29
-  resolution: "postcss@npm:8.4.29"
+  version: 8.4.31
+  resolution: "postcss@npm:8.4.31"
   dependencies:
     nanoid: ^3.3.6
     picocolors: ^1.0.0
     source-map-js: ^1.0.2
-  checksum: dd6daa25e781db9ae5b651d9b7bfde0ec6e60e86a37da69a18eb4773d5ddd51e28fc4ff054fbdc04636a31462e6bf09a1e50986f69ac52b10d46b7457cd36d12
+  checksum: 1d8611341b073143ad90486fcdfeab49edd243377b1f51834dc4f6d028e82ce5190e4f11bb2633276864503654fb7cab28e67abdc0fbf9d1f88cad4a0ff0beea
   languageName: node
   linkType: hard
 
@@ -9220,8 +9220,8 @@ __metadata:
 
 "rust-functions@file:./rust-functions/pkg::locator=remix-app-template%40workspace%3A.":
   version: 0.1.0
-  resolution: "rust-functions@file:./rust-functions/pkg#./rust-functions/pkg::hash=e479ae&locator=remix-app-template%40workspace%3A."
-  checksum: 7d56a80d2e2b2dfe50dabd1501164f5d81b0b258ad550c0b10c29711d083274b907f8c93d830781d982c0c50c203408ec767813f940cdf54749a1d75e104af9d
+  resolution: "rust-functions@file:./rust-functions/pkg#./rust-functions/pkg::hash=9e992f&locator=remix-app-template%40workspace%3A."
+  checksum: 76685a43ae23296969d862951b89ab3114514ed44290125a14386a6a8f781cec12637e5bf44b3efe7a390647884968aad662d7f7555442c8fe38f325aa294f16
   languageName: node
   linkType: hard
 
