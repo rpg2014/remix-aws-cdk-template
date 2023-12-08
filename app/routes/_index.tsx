@@ -1,8 +1,8 @@
-import type { V2_MetaFunction, LinksFunction } from "@remix-run/node";
+import type { MetaFunction, LinksFunction } from "@remix-run/node";
 import stylesUrl from "~/styles/index.css";
 import { CodeBlock } from "~/components/CodeBlock";
 
-export const meta: V2_MetaFunction = () => {
+export const meta: MetaFunction = () => {
   return [{ title: "Remix App" }, { name: "description", content: "Welcome to Remix!" }];
 };
 

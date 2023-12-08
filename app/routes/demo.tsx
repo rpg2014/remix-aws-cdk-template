@@ -1,4 +1,4 @@
-import type { LinksFunction, LoaderFunction, V2_MetaFunction } from "@remix-run/node";
+import type { LinksFunction, LoaderFunction, MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { Link, Outlet, useLoaderData } from "@remix-run/react";
 import stylesUrl from "~/styles/demo.css";
@@ -68,7 +68,7 @@ export const loader: LoaderFunction = () => {
 };
 
 // https://remix.run/api/conventions#meta
-export let meta: V2_MetaFunction = () => {
+export let meta: MetaFunction = () => {
   return [{ title: "Remix Starter" }, { description: "Welcome to remix!" }];
 };
 

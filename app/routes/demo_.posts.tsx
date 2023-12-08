@@ -1,9 +1,9 @@
 import { Form, useLoaderData, useNavigation } from "@remix-run/react";
-import type { ActionArgs, V2_MetaFunction } from "@remix-run/node";
+import type { ActionFunctionArgs, MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { hash } from "~/utils.server";
 
-export const meta: V2_MetaFunction = () => {
+export const meta: MetaFunction = () => {
   return [{ title: "In memory Posts demo" }, { name: "description", content: "Test post demo" }];
 };
 let state: { title: string; slug: string }[] = [
@@ -30,7 +30,7 @@ function Posts() {
     </main>
   );
 }
-export const action = async ({ request }: ActionArgs) => {
+export const action = async ({ request }: ActionFunctionArgs) => {
   const formData = await request.formData();
 
   const title = formData.get("test");

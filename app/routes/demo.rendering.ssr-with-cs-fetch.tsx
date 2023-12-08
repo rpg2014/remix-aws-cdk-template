@@ -1,10 +1,10 @@
 import { Suspense } from "react";
 import { ClientSideDate } from "~/components/ClientSideDate";
 import { CodeBlock } from "~/components/CodeBlock";
-import type { V2_MetaFunction } from "@remix-run/node";
+import type { MetaFunction } from "@remix-run/node";
 import { useStreams } from "../../lib/constants";
 
-export const meta: V2_MetaFunction = () => {
+export const meta: MetaFunction = () => {
   return [{ title: "CSR Fetching with Suspense Demo" }];
 };
 
