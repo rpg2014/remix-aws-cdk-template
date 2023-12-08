@@ -3,11 +3,11 @@ import * as React from "react";
 import type { LinksFunction } from "@remix-run/node";
 
 import  "~/styles/global.css";
-import darkStylesUrl from "~/styles/dark.css";
+import "~/styles/dark.css";
 
 import favicon from "~/images/favicon.ico";
 import * as EB from "~/components/ErrorBoundary";
-import { Layout, links as LayoutLinks } from "~/components/Layout";
+import { Layout} from "~/components/Layout";
 import { Document } from "~/components/Document";
 import { Outlet } from "@remix-run/react";
 
@@ -15,12 +15,12 @@ export let links: LinksFunction = () => {
   return [
     { rel: "icon", href: favicon },
     // { rel: "stylesheet", href: globalStylesUrl },
-    {
-      rel: "stylesheet",
-      href: darkStylesUrl,
-      media: "(prefers-color-scheme: dark)",
-    },
-    ...LayoutLinks(),
+    // {
+    //   rel: "stylesheet",
+    //   href: darkStylesUrl,
+    //   media: "(prefers-color-scheme: dark)",
+    // },
+    
   ];
 };
 

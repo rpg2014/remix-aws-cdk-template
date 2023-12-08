@@ -1,21 +1,21 @@
 import type { MetaFunction, LinksFunction } from "@remix-run/node";
-import stylesUrl from "~/styles/index.css";
+import styles from "~/styles/index.module.css";
 import { CodeBlock } from "~/components/CodeBlock";
 
 export const meta: MetaFunction = () => {
   return [{ title: "Remix App" }, { name: "description", content: "Welcome to Remix!" }];
 };
 
-export const links: LinksFunction = () => {
-  return [{ rel: "stylesheet", href: stylesUrl }];
-};
+// export const links: LinksFunction = () => {
+//   return [{ rel: "stylesheet", href: stylesUrl }];
+// };
 
 export default function Index() {
   return (
-    <div className={"indexContainer"} style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-      <main className={"indexMain"}>
+    <div className={styles.indexContainer} style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
+      <main className={styles.indexMain}>
         <h1>Remix CDK template</h1>
-        <div className="description">
+        <div className={styles.description}>
           <p>
             Turbocharge your web app with the CDK Remix Project Template. Experience lightning-fast server-side rendering using{" "}
             <a href={"https://aws.amazon.com/lambda/edge/"}>Lambda@Edge</a>, with the developer experience of <a href={"https://remix.run"}>Remix</a>

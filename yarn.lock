@@ -1965,9 +1965,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/rollup-linux-x64-gnu@npm:4.6.1":
+"@rollup/rollup-linux-x64-gnu@npm:4.6.1, @rollup/rollup-linux-x64-gnu@npm:^4.6.1":
   version: 4.6.1
   resolution: "@rollup/rollup-linux-x64-gnu@npm:4.6.1"
+  checksum: b92ddb5dbfe324cf70684d977410c579e499aef6676ba80ce77796d205a6743ad81180807bc187eaf0dd375b708d713be64b1802a3c29938850124f21bf73fcf
   conditions: os=linux & cpu=x64 & libc=glibc
   languageName: node
   linkType: hard
@@ -7949,14 +7950,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ms@npm:2.1.2":
+"ms@npm:2.1.2, ms@npm:^2.1.1":
   version: 2.1.2
   resolution: "ms@npm:2.1.2"
   checksum: 673cdb2c3133eb050c745908d8ce632ed2c02d85640e2edb3ace856a2266a813b30c613569bf3354fdf4ea7d1a1494add3bfa95e2713baa27d0c2c71fc44f58f
   languageName: node
   linkType: hard
 
-"ms@npm:2.1.3, ms@npm:^2.1.1":
+"ms@npm:2.1.3":
   version: 2.1.3
   resolution: "ms@npm:2.1.3"
   checksum: aa92de608021b242401676e35cfa5aa42dd70cbdc082b916da7fb925c542173e36bce97ea3e804923fe92c0ad991434e4a38327e15a1b5b5f945d66df615ae6d
@@ -9083,6 +9084,7 @@ __metadata:
     "@remix-run/react": "npm:^2.3.1"
     "@remix-run/serve": "npm:^2.3.1"
     "@remix-run/server-runtime": "npm:^2.3.1"
+    "@rollup/rollup-linux-x64-gnu": "npm:^4.6.1"
     "@types/aws-lambda": "npm:^8.10.119"
     "@types/jest": "npm:^27.0.3"
     "@types/node": "npm:^20.6.0"
@@ -9111,6 +9113,7 @@ __metadata:
     ts-node: "npm:^10.9.1"
     typescript: "npm:^5.2.2"
     vite: "npm:^5.0.6"
+    vite-plugin-wasm: "npm:^3.2.2"
     vite-tsconfig-paths: "npm:^4.2.2"
   languageName: unknown
   linkType: soft
@@ -9356,8 +9359,8 @@ __metadata:
 
 "rust-functions@file:./rust-functions/pkg::locator=remix-app-template%40workspace%3A.":
   version: 0.1.0
-  resolution: "rust-functions@file:./rust-functions/pkg#./rust-functions/pkg::hash=e479ae&locator=remix-app-template%40workspace%3A."
-  checksum: 7d56a80d2e2b2dfe50dabd1501164f5d81b0b258ad550c0b10c29711d083274b907f8c93d830781d982c0c50c203408ec767813f940cdf54749a1d75e104af9d
+  resolution: "rust-functions@file:./rust-functions/pkg#./rust-functions/pkg::hash=d9aa32&locator=remix-app-template%40workspace%3A."
+  checksum: c377d26f9fc97b62b85e31034027e397edc70c88dd485be44378096cfe53217aff1c328e56c3ee0d61f0acc71ac6324d959802e0198aed61cce16418d0c143c2
   languageName: node
   linkType: hard
 
@@ -10702,6 +10705,15 @@ __metadata:
   bin:
     vite-node: vite-node.mjs
   checksum: 8ddd11a7615f52c9fd3b59f27554c263b480bb64c7ca0b1ec3b22b14439038876c7edbde79fdf8678e211be8a1d3883c79a140207bd84a4ef815faf3da09cbbb
+  languageName: node
+  linkType: hard
+
+"vite-plugin-wasm@npm:^3.2.2":
+  version: 3.2.2
+  resolution: "vite-plugin-wasm@npm:3.2.2"
+  peerDependencies:
+    vite: ^2 || ^3 || ^4
+  checksum: 59ef8173f1547dcc12768ef6696de70a6c2262b63a89d4dcbf6096bab595af77b40cb87bd415ab362244ef9f7379ab616b08e995744bf48c13e809a9009d1470
   languageName: node
   linkType: hard
 

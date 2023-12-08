@@ -10,11 +10,11 @@
     "build:rust-functions": "wasm-pack build rust-functions --target nodejs --out-name rust-functions",
     "release": "yarn lint && yarn build",
     "dev:css": "sass --watch app/",
+    "dev:vite": "vite dev",
     "dev": "concurrently --kill-others 'yarn dev:css' 'vite dev'",
     "deploy": "yarn build && cdk deploy --profile personal",
     "diff": "yarn build && cdk diff --profile personal",
     "synth": "cdk synth",
-    "postinstall": "remix setup node",
     "start": "remix-serve build/server",
     "clean": "rm -rf build node_modules rust-functions/pkg",
     "test": "jest .",
@@ -39,6 +39,7 @@
   "devDependencies": {
     "@remix-run/dev": "^2.3.1",
     "@remix-run/eslint-config": "^2.3.1",
+    "@rollup/rollup-linux-x64-gnu": "^4.6.1",
     "@types/aws-lambda": "^8.10.119",
     "@types/jest": "^27.0.3",
     "@types/react": "^18.2.21",
@@ -57,6 +58,7 @@
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2",
     "vite": "^5.0.6",
+    "vite-plugin-wasm": "^3.2.2",
     "vite-tsconfig-paths": "^4.2.2"
   },
   "engines": {
