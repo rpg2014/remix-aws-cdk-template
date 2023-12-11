@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Link } from "@remix-run/react";
 import "~/styles/layout.css";
+import { useTheme } from "~/hooks/useTheme";
 
 // export const links = () => [{ rel: "stylesheet", href: layoutStyles }];
 
@@ -10,7 +11,9 @@ import "~/styles/layout.css";
  * @constructor
  */
 export function Layout({ children }: React.PropsWithChildren<{}>) {
+  const {theme} = useTheme();
   return (
+    <html data-theme={theme}>
     <div className="remix-app">
       <header className="remix-app__header">
         <div className="container remix-app__header-content">
@@ -45,6 +48,8 @@ export function Layout({ children }: React.PropsWithChildren<{}>) {
         </div>
       </footer>
     </div>
+    </html>
+
   );
 }
 

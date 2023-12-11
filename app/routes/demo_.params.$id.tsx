@@ -1,4 +1,4 @@
-import type { LoaderFunction, V2_MetaFunction } from "@remix-run/node";
+import type { LoaderFunction, MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import * as EB from "../components/ErrorBoundary";
 import type { MetaArgs } from "@remix-run/react";
@@ -60,7 +60,7 @@ export default function ParamDemo() {
 // https://remix.run/api/guides/not-found
 export const ErrorBoundary = EB.ErrorBoundary;
 
-export let meta: V2_MetaFunction = ({ data }: MetaArgs) => {
+export let meta: MetaFunction = ({ data }: MetaArgs) => {
   return [
     {
       title: data ? `Param: ${data.param}` : "Oops...",

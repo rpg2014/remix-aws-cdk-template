@@ -1,4 +1,4 @@
-:root {
+html[data-theme="blue"] {
   --color-foreground: hsl(0, 0%, 100%);
   --color-background: hsl(218, 100%, 50%);
   --color-links: hsl(112, 64%, 56%);

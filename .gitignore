@@ -16,3 +16,4 @@ package-lock.json
 *.css.map
 app/styles/demos/about.scss.css
 app/styles/demos/rust.css
+app/styles/demos/rust.module.css

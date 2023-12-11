@@ -4,6 +4,9 @@ import tsconfigPaths from "vite-tsconfig-paths";
 import wasm from "vite-plugin-wasm";
 
 export default defineConfig({
+  build: {
+    target: "esnext",
+  },
   plugins: [remix({
     appDirectory: "app",
     assetsBuildDirectory: "build/public/assets",

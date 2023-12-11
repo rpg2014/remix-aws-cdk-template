@@ -1,7 +1,9 @@
 import type { LinksFunction, LoaderFunction, MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { Link, Outlet, useLoaderData } from "@remix-run/react";
-import "~/styles/demo.css";
+import { useEffect } from "react";
+import { useTheme, useThemeOnPage } from "~/hooks/useTheme";
+import styles from "~/styles/demo.module.css";
 
 type IndexData = {
   resources: Array<{ name: string; url: string }>;
@@ -79,7 +81,7 @@ export let meta: MetaFunction = () => {
  */
 export default function Demo() {
   let data = useLoaderData<IndexData>();
-
+  useThemeOnPage("image")
   return (
     <div className="remix__page">
       <main>
@@ -95,12 +97,12 @@ export default function Demo() {
         </p> */}
         <Outlet />
       </main>
-      <aside className="demo-aside">
+      <aside className={styles.demoAside}>
         <h2>Demos In This App</h2>
         <ul>
           {data.demos.map(demo => (
             <li key={demo.to} className="remix__page__resource">
-              <Link to={demo.to} prefetch="intent">
+              <Link to={demo.to} prefetch="viewport">
                 {demo.name}
               </Link>
             </li>

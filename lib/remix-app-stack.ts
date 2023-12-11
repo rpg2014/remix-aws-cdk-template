@@ -80,8 +80,9 @@ export class RemixAppStack extends Stack {
         commandHooks: {
           afterBundling(inputDir, outputDir) {
             return [
+              //moving dependencies from the input to the output
               `cp ${inputDir}/rust-functions/pkg/rust-functions_bg.wasm ${outputDir}`,
-              `cp ${inputDir}/build/server/*.map ${outputDir}`,
+              // `cp ${inputDir}/build/server/*.map ${outputDir}`,
               `cp ${inputDir}/build/server/*.json ${outputDir}`,
             ];
           },

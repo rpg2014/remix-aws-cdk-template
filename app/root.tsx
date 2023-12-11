@@ -3,13 +3,14 @@ import * as React from "react";
 import type { LinksFunction } from "@remix-run/node";
 
 import  "~/styles/global.css";
-import "~/styles/dark.css";
+import "~/styles/themes.css";
 
 import favicon from "~/images/favicon.ico";
 import * as EB from "~/components/ErrorBoundary";
 import { Layout} from "~/components/Layout";
 import { Document } from "~/components/Document";
 import { Outlet } from "@remix-run/react";
+import { ThemeProvider } from "./hooks/useTheme";
 
 export let links: LinksFunction = () => {
   return [
@@ -36,9 +37,11 @@ export let links: LinksFunction = () => {
 export default function App() {
   return (
     <Document>
+      <ThemeProvider>
       <Layout>
         <Outlet />
       </Layout>
+      </ThemeProvider>
     </Document>
   );
 }
