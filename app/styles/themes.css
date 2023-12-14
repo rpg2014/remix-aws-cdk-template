@@ -1,4 +1,4 @@
-html {
+ :root {
     --color-foreground: hsl(0, 0%, 7%);
     --color-background: hsl(0, 0%, 100%);
     --color-links: hsl(213, 100%, 52%);
@@ -9,7 +9,7 @@ html {
     --background-image: none;
   }
 
-html[data-theme="dark"] {
+[data-theme="dark"] {
     --color-foreground: hsl(0, 0%, 100%);
     --color-background: hsl(0, 0%, 7%);
     --color-links: hsl(213, 100%, 73%);
@@ -18,7 +18,7 @@ html[data-theme="dark"] {
   }
   
 
-  html [data-theme="image"] {
+   [data-theme="image"] {
     --color-foreground: hsl(0, 0%, 0%);
     /* --color-background: hsl(218, 100%, 50%); */
     --color-links: hsl(94, 68%, 29%);
@@ -26,4 +26,23 @@ html[data-theme="dark"] {
     --color-border: rgb(134, 134, 134);
     --font-body: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
     --background-image: url("../images/forest.jpg");
+  }
+
+  [data-theme="yellow"] {
+    --color-foreground: hsl(0, 0%, 7%);
+    --color-background: hsl(56, 100%, 50%);
+    --color-links: hsl(0, 93%, 60%);
+    --color-links-hover: hsl(345, 86%, 42%);
+  
+    --background-image: none;
+  }
+
+  [data-theme="blue"] {
+    --color-foreground: hsl(0, 0%, 100%);
+    --color-background: hsl(218, 100%, 50%);
+    --color-links: hsl(112, 64%, 56%);
+    --color-links-hover: hsl(345, 51%, 49%);
+    --color-border: rgb(184, 20, 58);
+    --font-body: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+    --background-image: none;
   }

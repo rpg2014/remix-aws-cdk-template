@@ -1,11 +1,11 @@
 import { Link } from "@remix-run/react";
 import { useThemeOnPage } from "~/hooks/useTheme";
-import  "~/styles/demos/about.scss.css";
+import stylesUrl from "~/styles/demos/about.scss.css";
 
-// export const links = () => [{ rel: "stylesheet", href: stylesUrl }];
+export const links = () => [{ rel: "stylesheet", href: stylesUrl }];
 export const meta = () => [{ title: "SCSS" }];
-export default function AboutSCSS() {
-  useThemeOnPage("dark")
+export default function AboutIndex() {
+
   return (
     <div>
       <p className="scss-box">

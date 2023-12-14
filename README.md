@@ -92,10 +92,12 @@ Feel free to contribute to this project. Create a pull request or open an issue 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## TODO:
-#### Remove Link css sections
+#### Remove Link css sections / update to vite
 vite doesn't need the link function to return css, so I need to migrate to css modules and then do css side effect imports. 
 
 Actually need to re-write most of the css, as previous versions of remix suggested overwriting the :root css selector, which is used extensivly throughout this code.  It doesn't work with vite because its a bad idea
+
+#### Imple
 
 #### Add generic JWT auth using remix auth.
 
@@ -105,7 +107,7 @@ auth site will login user, and set cookie for main domain
 
 if cookie present, will validate with well-known file and then create session.
 https://github.com/sergiodxa/remix-auth
-prob not gonna add here
+
 #### Route animations
 
 https://github.com/remix-run/examples/blob/main/framer-route-animation/app/root.tsx

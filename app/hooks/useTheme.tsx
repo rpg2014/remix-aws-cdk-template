@@ -26,9 +26,9 @@ export const useThemeOnPage = (theme: Theme) => {
     useEffect(() => {
         setTheme(theme)
     
-        return () => {
-            setTheme("dark")
+        // return () => {
+        //     setTheme("dark")
         
-        }
+        // }
     },[]);
 }

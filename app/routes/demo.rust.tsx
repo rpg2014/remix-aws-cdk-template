@@ -1,7 +1,7 @@
 import { Link, Outlet } from "@remix-run/react";
 import * as EB from "~/components/ErrorBoundary";
-import "~/styles/demos/rust.module.css";
-// export const links = () => [{ rel: "stylesheet", href: stylesUrl }];
+import styles from "~/styles/demos/rust.module.scss";
+
 export const meta = () => [{ title: "Rust and WASM Demo" }, { name: "description", content: "Rust and WASM Demo" }];
 
 export default function Index() {

@@ -1,5 +1,6 @@
 import React from "react";
 import { Links, LiveReload, Meta, Scripts, ScrollRestoration } from "@remix-run/react";
+import { useTheme } from "~/hooks/useTheme";
 
 /**
  * Contains the Various document metadata that you want on every page, Should probably add other manifest meta tags
@@ -8,6 +9,12 @@ import { Links, LiveReload, Meta, Scripts, ScrollRestoration } from "@remix-run/
  * @constructor
  */
 export function Document({ children, title }: { children: React.ReactNode; title?: string }) {
+  const {theme,setTheme} = useTheme();
+  React.useEffect(() => {
+    if(!theme){
+      setTheme("dark");
+    }
+  },[])
   return (
     <html lang="en">
       <head>
@@ -17,7 +24,7 @@ export function Document({ children, title }: { children: React.ReactNode; title
         <Meta />
         <Links />
       </head>
-      <body>
+      <body data-theme={theme}>
         {children}
         <ScrollRestoration />
         <Scripts />

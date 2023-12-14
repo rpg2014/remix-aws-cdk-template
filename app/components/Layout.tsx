@@ -1,9 +1,9 @@
 import * as React from "react";
 import { Link } from "@remix-run/react";
-import "~/styles/layout.css";
+import layoutStyles from "~/styles/layout.css";
 import { useTheme } from "~/hooks/useTheme";
 
-// export const links = () => [{ rel: "stylesheet", href: layoutStyles }];
+export const links = () => [{ rel: "stylesheet", href: layoutStyles }];
 
 /**
  * Header and footer that will be present on every route, think of it as the shell app.
@@ -11,13 +11,13 @@ import { useTheme } from "~/hooks/useTheme";
  * @constructor
  */
 export function Layout({ children }: React.PropsWithChildren<{}>) {
-  const {theme} = useTheme();
+ 
   return (
-    <html data-theme={theme}>
+    
     <div className="remix-app">
       <header className="remix-app__header">
         <div className="container remix-app__header-content">
-          <Link prefetch={"intent"} to="/" title="Remix" className="remix-app__header-home-link">
+          <Link prefetch={"viewport"} to="/" title="Remix" className="remix-app__header-home-link">
             <RemixLogo />
           </Link>
           <nav aria-label="Main navigation" className="remix-app__header-nav">
@@ -28,7 +28,7 @@ export function Layout({ children }: React.PropsWithChildren<{}>) {
                 </Link>
               </li>
               <li>
-                <Link prefetch={"intent"} to={"/demo"}>
+                <Link prefetch={"viewport"} to={"/demo"}>
                   Demo Page
                 </Link>
               </li>
@@ -48,8 +48,6 @@ export function Layout({ children }: React.PropsWithChildren<{}>) {
         </div>
       </footer>
     </div>
-    </html>
-
   );
 }
 

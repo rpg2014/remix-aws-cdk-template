@@ -1,15 +1,18 @@
 import { Link } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
-import "~/styles/demos/whoa.css";
+import stylesUrl from "~/styles/demos/whoa.css";
+import { useTheme, useThemeOnPage } from "~/hooks/useTheme";
+import { useEffect } from "react";
 
 export const meta = () => {
   return [{ title: "Nested CSS" }];
 };
 
-// export let links: LinksFunction = () => {
-//   return [{ rel: "stylesheet", href: stylesUrl }];
-// };
+export let links: LinksFunction = () => {
+  return [{ rel: "stylesheet", href: stylesUrl }];
+};
 export default function AboutWhoa() {
+
   return (
     <div>
       <p>

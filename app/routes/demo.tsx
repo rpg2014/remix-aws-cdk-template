@@ -2,7 +2,7 @@ import type { LinksFunction, LoaderFunction, MetaFunction } from "@remix-run/nod
 import { json } from "@remix-run/node";
 import { Link, Outlet, useLoaderData } from "@remix-run/react";
 import { useEffect } from "react";
-import { useTheme, useThemeOnPage } from "~/hooks/useTheme";
+import { useTheme } from "~/hooks/useTheme";
 import styles from "~/styles/demo.module.css";
 
 type IndexData = {
@@ -81,7 +81,7 @@ export let meta: MetaFunction = () => {
  */
 export default function Demo() {
   let data = useLoaderData<IndexData>();
-  useThemeOnPage("image")
+ 
   return (
     <div className="remix__page">
       <main>

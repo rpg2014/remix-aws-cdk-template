@@ -60,7 +60,7 @@ export default function ParamDemo() {
 // https://remix.run/api/guides/not-found
 export const ErrorBoundary = EB.ErrorBoundary;
 
-export let meta: MetaFunction = ({ data }: MetaArgs) => {
+export let meta: MetaFunction = ({ data }: MetaArgs<{param: string}>) => {
   return [
     {
       title: data ? `Param: ${data.param}` : "Oops...",

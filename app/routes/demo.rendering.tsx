@@ -1,9 +1,9 @@
 import { NavLink, Outlet, useNavigation, useOutletContext } from "@remix-run/react";
 import { Suspense, useState } from "react";
 
-import  "~/styles/demos/rendering.css";
+import styles from "~/styles/demos/rendering.css";
 
-// export const links = () => [{ rel: "stylesheet", href: styles }];
+export const links = () => [{ rel: "stylesheet", href: styles }];
 
 export const getDate = async () => {
   const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));

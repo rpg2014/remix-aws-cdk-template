@@ -1,13 +1,15 @@
 import type { MetaFunction, LinksFunction } from "@remix-run/node";
 import styles from "~/styles/index.module.css";
 import { CodeBlock } from "~/components/CodeBlock";
+import { useTheme } from "~/hooks/useTheme";
+import { useEffect } from "react";
 
 export const meta: MetaFunction = () => {
   return [{ title: "Remix App" }, { name: "description", content: "Welcome to Remix!" }];
 };
 
 // export const links: LinksFunction = () => {
-//   return [{ rel: "stylesheet", href: stylesUrl }];
+//   return [{ rel: "stylesheet", href: styles }];
 // };
 
 export default function Index() {

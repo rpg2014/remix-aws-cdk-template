@@ -1,12 +1,11 @@
 import { Link } from "@remix-run/react";
 import { useEffect } from "react";
-import { useTheme, useThemeOnPage } from "~/hooks/useTheme";
-import "~/styles/demos/about.index.css";
+import { useTheme } from "~/hooks/useTheme";
+import stylesUrl from "~/styles/demos/about.index.css";
 
-// export const links = () => [{ rel: "stylesheet", href: stylesUrl }];
+export const links = () => [{ rel: "stylesheet", href: stylesUrl }];
 export default function AboutIndex() {
-  useThemeOnPage("yellow")
-  
+
   return (
     <div>
       <p>
