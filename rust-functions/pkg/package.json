@@ -1,0 +1,11 @@
+{
+  "name": "rust-functions",
+  "version": "0.1.0",
+  "files": [
+    "rust-functions_bg.wasm",
+    "rust-functions.js",
+    "rust-functions.d.ts"
+  ],
+  "main": "rust-functions.js",
+  "types": "rust-functions.d.ts"
+}
