@@ -21,31 +21,31 @@
     "lint": "yarn prettier . --write && yarn run eslint . --fix"
   },
   "dependencies": {
-    "@remix-run/css-bundle": "^2.4.0",
-    "@remix-run/node": "^2.4.0",
-    "@remix-run/react": "^2.4.0",
-    "@remix-run/serve": "^2.4.0",
-    "@remix-run/server-runtime": "^2.4.0",
+    "@remix-run/css-bundle": "^2.6.0",
+    "@remix-run/node": "^2.6.0",
+    "@remix-run/react": "^2.6.0",
+    "@remix-run/serve": "^2.6.0",
+    "@remix-run/server-runtime": "^2.6.0",
     "@types/node": "^20.6.0",
     "@types/source-map-support": "^0.5.7",
     "esbuild": "^0.19.2",
     "isbot": "latest",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "remix": "^2.0.0",
+    "remix": "^2.6.0",
     "roadhouse-wasm": "github:rpg2014/roadhouse-wasm",
     "rust-functions": "./rust-functions/pkg",
     "swr": "^2.2.2"
   },
   "devDependencies": {
-    "@remix-run/dev": "^2.4.0",
-    "@remix-run/eslint-config": "^2.4.0",
+    "@remix-run/dev": "^2.6.0",
+    "@remix-run/eslint-config": "^2.6.0",
     "@types/aws-lambda": "^8.10.119",
     "@types/jest": "^27.0.3",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
-    "aws-cdk": "^2.114.1",
-    "aws-cdk-lib": "^2.114.1",
+    "aws-cdk": "^2.128.0",
+    "aws-cdk-lib": "^2.128.0",
     "concurrently": "^8.2.1",
     "constructs": "^10.2.70",
     "eslint": "^8.49.0",
@@ -62,5 +62,5 @@
     "node": ">=18"
   },
   "sideEffects": false,
-  "packageManager": "yarn@4.0.2"
+  "packageManager": "yarn@4.1.0"
 }
