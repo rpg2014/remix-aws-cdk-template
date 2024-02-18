@@ -9373,8 +9373,8 @@ __metadata:
 
 "rust-functions@file:./rust-functions/pkg::locator=remix-app-template%40workspace%3A.":
   version: 0.1.0
-  resolution: "rust-functions@file:./rust-functions/pkg#./rust-functions/pkg::hash=e479ae&locator=remix-app-template%40workspace%3A."
-  checksum: 10/7d56a80d2e2b2dfe50dabd1501164f5d81b0b258ad550c0b10c29711d083274b907f8c93d830781d982c0c50c203408ec767813f940cdf54749a1d75e104af9d
+  resolution: "rust-functions@file:./rust-functions/pkg#./rust-functions/pkg::hash=9e992f&locator=remix-app-template%40workspace%3A."
+  checksum: 10/76685a43ae23296969d862951b89ab3114514ed44290125a14386a6a8f781cec12637e5bf44b3efe7a390647884968aad662d7f7555442c8fe38f325aa294f16
   languageName: node
   linkType: hard
 
@@ -10669,8 +10669,8 @@ __metadata:
   linkType: hard
 
 "vite@npm:^3.0.0 || ^4.0.0, vite@npm:^4.1.4":
-  version: 4.4.9
-  resolution: "vite@npm:4.4.9"
+  version: 4.5.2
+  resolution: "vite@npm:4.5.2"
   dependencies:
     esbuild: "npm:^0.18.10"
     fsevents: "npm:~2.3.2"
@@ -10704,7 +10704,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 10/d15543bded36f2083c13286b5420e89673be99abd28664f27a73980f2099f10e427b07e24f4e035dcd682989ebf8e1e5f5257664771edd4b466e2599119d1a47
+  checksum: 10/3feb39f8da038fb2b1ad074c19a9579c263c1d7a872c5c6e0269b82d67805bb8c93cf9fc393e852807483ae9a918b1ac2861c72f73ee92fb3935ea68333a2cf7
   languageName: node
   linkType: hard
 
