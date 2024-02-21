@@ -5870,9 +5870,9 @@ __metadata:
   linkType: hard
 
 "ip@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "ip@npm:2.0.0"
-  checksum: 10/1270b11e534a466fb4cf4426cbcc3a907c429389f7f4e4e3b288b42823562e88d6a509ceda8141a507de147ca506141f745005c0aa144569d94cf24a54eb52bc
+  version: 2.0.1
+  resolution: "ip@npm:2.0.1"
+  checksum: 10/d6dd154e1bc5e8725adfdd6fb92218635b9cbe6d873d051bd63b178f009777f751a5eea4c67021723a7056325fc3052f8b6599af0a2d56f042c93e684b4a0349
   languageName: node
   linkType: hard
 
@@ -9373,8 +9373,8 @@ __metadata:
 
 "rust-functions@file:./rust-functions/pkg::locator=remix-app-template%40workspace%3A.":
   version: 0.1.0
-  resolution: "rust-functions@file:./rust-functions/pkg#./rust-functions/pkg::hash=e479ae&locator=remix-app-template%40workspace%3A."
-  checksum: 10/7d56a80d2e2b2dfe50dabd1501164f5d81b0b258ad550c0b10c29711d083274b907f8c93d830781d982c0c50c203408ec767813f940cdf54749a1d75e104af9d
+  resolution: "rust-functions@file:./rust-functions/pkg#./rust-functions/pkg::hash=ef0c34&locator=remix-app-template%40workspace%3A."
+  checksum: 10/41d8e17c5bd9cefb4f2a1bf54efc8779daa1e279b499dc97b06f71591ccac45a6263f20e3bd50ec099953b9f2e03066b22736f265ea0340f25d14341efceb757
   languageName: node
   linkType: hard
 
